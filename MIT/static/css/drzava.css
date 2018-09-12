@@ -1,0 +1,236 @@
+html{
+  height: 100%;
+}
+body{
+  height: auto;
+  width: 100vw;
+}
+
+.jumbotron{
+    background-image: url('../imgs/hand.jpg');
+    background-size: cover;
+    color: black;
+}
+
+h2,h4{
+  margin: 2vw auto;
+  font-family: Scratchy;
+  text-align: center;
+
+}
+@font-face {
+    font-family: Scratchy;
+    src: url('../fonts/Widescratch Italic.ttf');
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light{
+  background-image: url('../imgs/find.jpg');
+  height: 14%;
+  border-radius: 30px;
+  padding: 10px;
+  width: 97%;
+  margin: 3vw auto;
+  opacity: 1;
+/*  position: fixed;*/
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand,
+.navbar-light .navbar-nav .active>.nav-link {
+  color: white;
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-brand:hover,
+.navbar-light .navbar-nav .active>.nav-link:hover, .dropdown-item:hover{
+  color:#ff5e13;
+}
+.navbar-light .navbar-nav .nav-link:active, .navbar-light .navbar-brand:active,
+.navbar-light .navbar-nav .active>.nav-link:active, .dropdown-item:active{
+  color:#ff5e13;
+}
+.btn-outline-success, body > div.jumbotron > a{
+border-color: #ff5e13;
+color: #ff5313;
+background-color: transparent;
+}
+.btn-outline-success:hover, body > div.jumbotron > a:hover{
+border-color: #fff;
+color: #fff;
+background-color: #ff5e13;
+background
+}
+.btn-outline-success:active, body > div.jumbotron > a:active{
+border-color: #fff;
+color: #fff;
+background-color: #ff5e13;
+}
+
+.container{
+  width:95%;
+  margin: 3vw auto;
+}
+
+#navbarSupportedContent > form > input{
+  width:10vw;
+}
+.form-inline .form-control{
+  width:10vw;
+}
+
+.container-fluid.zaprati{
+  background-image: url('../imgs/find.jpg');
+  background-position: top right;
+
+}
+#baner_zaprati{
+  height: 25vh;
+  margin: auto;
+  width: 50%;
+  border-radius: 2px solid red;
+}
+
+#btn_zaprati{
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: Scratchy;
+  width: 15vw;
+  display: inline;
+  margin-top: 6vw;
+
+}
+
+
+#txt_email{
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: Scratchy;
+  width: 30vw;
+  display: inline;
+}
+
+p, h6{
+  font-family: Scratchy;
+}
+
+#glavni{
+	width: 27vw;
+	height: 50vh;
+	margin: auto;
+	box-shadow: 0px 0px 200px  black;
+	background-color: rgba(240,240,240,0.2);
+  transition: opacity 0.7s;
+}
+.slika{
+	width: 90%;
+	height: 50%;
+	display: block;
+	margin: auto;
+	padding-top: 35px;
+}
+.opis{
+	margin-top: 30px;
+}
+.tekst{
+
+	width: 100%;
+	text-align: center;
+}
+.navigate{
+	width: 90%;
+	margin: auto;
+}
+
+.nav_btn{
+	width: 30%;
+	display: inline-block;
+	margin:auto;
+	font-size: 50px;
+	background-color: transparent;
+	border: none;
+	transition: font-size 0.2s;
+}
+.nav_btn.left{
+	float:left;
+	text-align: left;
+}
+.nav_btn.left:hover{
+	font-size: 60px;
+}
+.nav_btn.right{
+	float:right;
+	text-align: right;
+}
+.nav_btn.right:hover{
+	font-size: 60px;
+}
+.nav_btn_centar{
+	width: 40%;
+	font-size: 25px;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 25%;
+	border: none;
+}
+
+body > footer > div{
+	margin: 0px;
+}
+@media(max-width: 1000px)
+{
+  .jumbotron h1{
+    font-size: 2em;
+  }
+      #btn_zaprati{
+      margin-top: 10px;
+      border-radius: 10px;
+      font-size: 0.7em;
+      font-family: Scratchy;
+      width: 100%;
+      display: inline;
+
+    }
+
+
+    #txt_email{
+      margin-top:2vh;
+      font-size: 0.7em;
+      border-radius: 10px;
+      font-family: Scratchy;
+      width: 100%;
+      display: inline;
+    }
+
+    #navbarSupportedContent{
+      background-color: rgba(0,0,0,1);
+      background-image: url('../imgs/find.jpg');
+      border-radius: 25px;
+      width: 100%;
+    }
+
+
+    #navbarSupportedContent > form > input{
+      width: 80%;
+    }
+
+   #glavni{
+   	width: 95%;
+   	height: auto;
+   }
+   .navigate{
+   	padding-bottom:  20px;
+   }
+
+   .nav_btn_centar{
+   	font-size:15px;
+   }
+
+
+
+}
+
+button:active {
+outline: none;
+border: none;
+opacity: 1!important;
+}
+button:focus {
+outline:0;
+}

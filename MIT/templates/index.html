@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html lang="en" style="height:100%">
+
+  <head>
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/custom.css') }} type="text/css"/>
+
+
+  </head>
+
+
+
+<body>
+
+
+
+
+
+
+    <!-- SPLASH SCREEN + NAVBAR -->
+
+
+
+
+
+    <div class="jumbotron">
+
+      {% include 'navbar.html' %}
+
+
+      <h1 class="display-4">MiT Travel</h1>
+      <p class="lead">Avantura pocinje ovde.</p>
+      <hr class="my-4">
+      <p>Uverite se i sami zasto smo najbolji!</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Saznajte vise</a>
+    </div>
+
+    <h2>Proverite zasto smo najbolji!</h2>
+
+
+
+
+
+<!-- NAJBOLJE PONUDE -->
+
+
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col dest">
+          <h4>Karneval u Riu - Brazil</h4>
+          <img src={{url_for('static', filename='imgs/brazil karneval.jpg')}}/>
+
+        </div>
+        <div class="col dest">
+          <h4>Vikend - Venecija</h4>
+          <img src={{url_for('static', filename='imgs/venecija.jpg')}}/>
+        </div>
+
+    </div>
+  </div>
+<div class="container">
+    <div class="row">
+      <div class="col dest">
+        <h4>Ibica - Spanija</h4>
+
+        <img src={{url_for('static', filename='imgs/ibica.jpg')}}/>
+      </div>
+      <div class="col dest">
+        <h4>Koloseum - Rim</h4>
+        <img src={{url_for('static', filename='imgs/rim.jpg')}}/>
+        </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- LAST MINUTE SEGMENT -->
+
+
+<div class="container-fluid" id="last_minute_banner">
+  <h2 id="last_min_h2">
+	Last minute ponude
+  </h2>
+  <div class="row" >
+        <div class="col" id="last_min_offer">
+          <h4>Egipat - Kairo</h4>
+		<p>
+			<span class="last_min_span">45% popusta! </span> Ne propustite priliku da posetite jednu od najinteresantnijih destinacija na svetu
+		</p>
+        <div class="last_min_img_info">
+            <img src={{url_for('static', filename='imgs/egipat.jpg')}} class="last_min_img"/>
+
+            <button class="last_min_info_btn btn-outline-success" value="Saznaj vise">
+              Saznaj vise
+            </button>
+        </div>
+
+        </div>
+        <div class="col" id="last_min_offer">
+          <h4>Ostrvo Bali</h4>
+			<p>
+			<span class="last_min_span">35% popusta!</span>  Ne propustite priliku da posetite od najegzoticnijih destinacija na svetu
+		</p>
+      <div class="last_min_img_info">
+            <img src={{url_for('static', filename='imgs/bali.jpg')}} class="last_min_img"/>
+
+            <button class=" btn-outline-success last_min_info_btn" value="Saznaj vise">
+              Saznaj vise
+            </button>
+        </div>
+
+        </div>
+  </div>
+</div>
+
+
+
+{% include 'subscribe_futer.html'%}
+
+
+
+
+
+	   <!-- BOOTSTRAP JS IMPORTS -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,258 @@
+html{
+  height: 100%;
+
+}
+body{
+  height: auto;
+  width: 100vw;
+    background-image: url('../imgs/sto.jpg');
+    background-repeat: repeat-y;
+    background-position: top left;
+    background-size: cover;
+}
+
+.jumbotron{
+  background-color: transparent;
+  height: auto;
+  color:white;
+  margin: 0px;
+  font-family: Scratchy;
+  padding:0px;
+  padding-top:5px;
+  width: 100vw;
+}
+h2,h4{
+  margin: 2vw auto;
+  font-family: Scratchy;
+  text-align: center;
+
+}
+@font-face {
+    font-family: Scratchy;
+    src: url('../fonts/Widescratch Italic.ttf');
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light{
+  background-image: url('../imgs/find.jpg');
+  height: 14%;
+  border-radius: 30px;
+  padding: 10px;
+  width: 97%;
+  margin: 3vw auto;
+  opacity: 1;
+/*  position: fixed;*/
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand,
+.navbar-light .navbar-nav .active>.nav-link {
+  color: white;
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-brand:hover,
+.navbar-light .navbar-nav .active>.nav-link:hover, .dropdown-item:hover{
+  color:#ff5e13;
+}
+.navbar-light .navbar-nav .nav-link:active, .navbar-light .navbar-brand:active,
+.navbar-light .navbar-nav .active>.nav-link:active, .dropdown-item:active{
+  color:#ff5e13;
+}
+.btn-outline-success, body > div.jumbotron > a{
+border-color: #ff5e13;
+color: #ff5313;
+background-color: transparent;
+}
+.btn-outline-success:hover, body > div.jumbotron > a:hover{
+border-color: #fff;
+color: #fff;
+background-color: #ff5e13;
+}
+.btn-outline-success:active, body > div.jumbotron > a:active{
+border-color: #fff;
+color: #fff;
+background-color: #ff5e13;
+}
+
+.container{
+  width:95%;
+  margin: 3vw auto;
+}
+
+#navbarSupportedContent > form > input{
+  width:10vw;
+}
+.form-inline .form-control{
+  width:10vw;
+}
+
+.last_min_span{
+  font-family:Scratchy;
+  font-size:4em;
+  font-weight:500;
+}
+
+#last_min_h2{
+  width: 50%;
+  margin: auto;
+  display: block;
+  padding-top: 50px;
+  font-size: 3em;
+  color: white;
+}
+
+#last_min_offer{
+	background-image:linear-gradient( to top, transparent, rgb(254, 196, 34) );
+	margin:10vw 3vw;
+	min-height:25vw;
+  border-radius: 5px;
+
+	font-family:Scratchy;
+}
+
+.container-fluid.zaprati{
+  background-image: url('../imgs/find.jpg');
+  background-position: top right;
+
+}
+#baner_zaprati{
+  height: 25vh;
+  margin: auto;
+  width: 50%;
+  border-radius: 2px solid red;
+}
+
+#btn_zaprati{
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: Scratchy;
+  width: 15vw;
+  display: inline;
+  margin-top: 6vw;
+
+}
+
+
+#txt_email{
+  font-size: 1em;
+  border-radius: 10px;
+  font-family: Scratchy;
+  width: 30vw;
+  display: inline;
+}
+
+
+
+#futer_section{
+  background-image: linear-gradient(to right, rgb(255, 5, 52), transparent, transparent);
+
+  font-family: Scratchy;
+}
+p, h6{
+  font-family: Scratchy;
+}
+
+
+.polaroid {
+  position: absolute;
+  width: 17vw;
+  height: 40vh;
+  background-image: url('../imgs/papir.jpg');
+  background-size: cover;
+  transition: width 0.5s, height 0.5s, box-shadow 0.4s;
+}
+
+.polaroid:hover {
+  z-index: 999;
+  width: 20vw;
+  height: 45vh;
+  box-shadow: 10px 10px 80px 20px black;
+  cursor: pointer;
+}
+
+.sto{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.slika_u_pol{
+  display: block;
+  position: relative;
+  margin: auto;
+  margin-top: 15px;
+  width: 92%;
+  height: 70%;
+
+}
+
+
+footer{
+  position: relative;
+  padding-top:15px;
+  padding-bottom:30px;
+  background-color: whitesmoke;
+  margin: 0px;
+}
+
+@media(max-width: 1000px)
+{
+  .jumbotron h1{
+    font-size: 2em;
+  }
+      #btn_zaprati{
+      margin-top: 10px;
+      border-radius: 10px;
+      font-size: 0.7em;
+      font-family: Scratchy;
+      width: 100%;
+      display: inline;
+    }
+
+    #txt_email{
+      margin-top:2vh;
+      font-size: 0.7em;
+      border-radius: 10px;
+      font-family: Scratchy;
+      width: 100%;
+      display: inline;
+    }
+
+    #navbarSupportedContent{
+      background-color: rgba(0,0,0,1);
+      background-image: url('../imgs/find.jpg');
+      border-radius: 25px;
+      width: 100%;
+    }
+
+
+    #navbarSupportedContent > form > input{
+      width: 80%;
+    }
+
+    #last_min_h2 {
+      margin: 0px;
+      width: 100%;
+    }
+    .polaroid{
+      position: relative;
+      width: 90vw;
+      height: 40vh;
+      margin: auto;
+      background-image: url('../imgs/papir.jpg');
+      background-size: cover;
+      transition: box-shadow 0.5s;
+      transform: rotate(0) !important;
+      left: 0 !important;
+      top: 0 !important;
+    }
+
+    .polaroid:hover{
+      width:90%;
+      height: 60vh;
+    }
+    .sto {
+      height: auto;
+    }
+    .slika_u_pol{
+      padding-top: 15px;
+    }
+
+}

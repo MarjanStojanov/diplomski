@@ -1,0 +1,22 @@
+.jumbotron{
+	background-image: url('../imgs/onm.jpg');
+	background-size: cover;
+	background-origin: 50% 0%;
+	height: 100vh;
+	color:black;
+}
+
+.tekstonama{
+  display: inline-block;
+}
+
+.gifonama{
+  display: inline-block;
+}
+.gifonama img{
+
+  width: 500px;
+}
+.onama{
+  margin-bottom: 30px;
+}
