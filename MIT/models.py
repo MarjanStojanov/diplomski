@@ -16,10 +16,13 @@ class Drzava(db.Model):
     slika_URL       = db.Column(db.String(250), index=True, unique=True)
     opis            = db.Column(db.String(250), index=True, unique=True)
 
-    drzava          = db.relationship('Destinacija', backref='drzava', lazy=True)
-    id_drzava       = db.Column(db.Integer, db.ForeignKey('destinacija.id'))
 
-
+    def toJSON(self):
+        return {
+        'id':self.id,
+        'naziv':self.naziv,
+        'opis':self.opis
+        }
 
 
 class Aranzman(db.Model):
@@ -40,8 +43,12 @@ class Destinacija(db.Model):
     cena_smestaj    = db.Column(db.Integer, unique=False)
     cena_avion      = db.Column(db.Integer, unique=False)
     cena_bus        = db.Column(db.Integer, unique=False)
-
+    last_min        = db.Column(db.Boolean, unique=False)
+    random          = db.Column(db.Integer, unique=False)
     #aranzman        = db.relationship('Aranzman', backref='Destinacija', lazy=True)
+
+    drzava          = db.relationship('Drzava', backref='drzava', lazy=True)
+    id_drzava       = db.Column(db.Integer, db.ForeignKey('drzava.id'))
 
 
 
@@ -56,5 +63,5 @@ class Termin(db.Model):
 
 class api_token(db.Model):
     id              = db.Column(db.Integer, primary_key=True)
-    token            = db.Column(db.String(250), index=True, unique=True)
+    token           = db.Column(db.String(250), index=True, unique=True)
     email           = db.Column(db.String(250), index=True, unique=True)

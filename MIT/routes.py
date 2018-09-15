@@ -2,7 +2,7 @@ from mit import app
 from mit import db
 from flask import render_template
 
-from models import Kontinent
+from models import *
 
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
@@ -17,7 +17,6 @@ def kontinenti():
 
 @app.route('/kontinent/<string:kont>', methods=['GET'])
 def kontinent(kont):
-    print('<<in>>')
     kontinent = Kontinent.query.filter_by(naziv = kont)
     print(kont)
     print(kontinent)
@@ -34,9 +33,8 @@ def destinacija():
     return render_template('destinacija.html')
 
 
-@app.route('/onama', methods=['GET'])
-def onama():
-    return render_template('onama.html')
+
+
 
 @app.errorhandler(404)
 def vrati_404(error):
