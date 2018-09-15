@@ -11,4 +11,5 @@ app.config.from_object(Config())
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 ma = Marshmallow(app)
+
 import routes, api_routes , models
