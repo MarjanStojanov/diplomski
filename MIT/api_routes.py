@@ -42,8 +42,9 @@ def vrati_drzave():
                 print('IN')
                 pass
     else:
-        return json.dumps({'error':'method not allowed'})
-        #abort(405)
+        err = flask.request.method + 'request not allowed'
+        return make_response(jsonify({'error': err})), 405
+
 
 
 
@@ -70,15 +71,16 @@ def vrati_drzavu(ID):
             for arg in flask.request.args:
                 if arg == 'naziv':
                     data.naziv = flask.request.args[arg]
-                elif arg == '':
-                    pass
+                elif arg == 'opis':
+                    data.opis = flask.request.args[arg]
                 db.session.commit()
             return make_response(jsonify({'status': 'success'})), 200
 
     elif flask.request.method == 'DELETE':
         pass
     else:
-        return abort(405)
+        err = flask.request.method + 'request not allowed'
+        return make_response(jsonify({'error': err})), 405
 
 
 @app.route('/api/drzave/<int:ID>/destinacije', methods=['GET', 'POST'])
@@ -94,8 +96,8 @@ def vrati_destinacije_drzave(ID):
     elif flask.request.method == 'POST':
         pass
     else:
-        return render_template('404.html'), 404
-
+        err = flask.request.method + 'request not allowed'
+        return make_response(jsonify({'error': err})), 405
 
 
 @app.route('/api/destinacije', methods=['GET', 'POST'])
@@ -113,7 +115,8 @@ def vrati_destinacije():
     elif flask.request.method == 'POST':
         pass
     else:
-        return render_template('404.html'), 404
+        err = flask.request.method + 'request not allowed'
+        return make_response(jsonify({'error': err})), 405
 
 
 @app.route('/api/destinacije/<int:ID>', methods=['GET', 'PUT', 'DELETE'])
@@ -155,7 +158,8 @@ def vrati_destinaciju(ID):
                 db.session.commit()
             return make_response(jsonify({'status': 'success'})), 200
     else:
-        abort(404)
+        err = flask.request.method + 'request not allowed'
+        return make_response(jsonify({'error': err})), 405
 
 @app.route('/api/admin/tokens', methods=['GET','PUT','POST', 'DELETE'])
 def token_manager():
@@ -183,17 +187,17 @@ def token_manager():
                     return make_response(jsonify({'status': 'success'})), 200
                 else:
                     pass
-            #else:
-            #    pass
 
+        elif flask.request.method == 'POST':
+            pass
 
-
-
-
-
-
+        elif flask.request.method == 'DELETE':
+            pass
+        else:
+            err = flask.request.method + 'request not allowed'
+            return make_response(jsonify({'error': err})), 405
     else:
-        return vrati_404()
+        abort(404)
 
 
 
