@@ -1,5 +1,5 @@
 from functools import wraps
-from flask import request, abort, jsonify, render_template
+from flask import request, abort, jsonify, render_template, make_response
 from models import *
 from schemas import *
 from mit import db
@@ -34,7 +34,13 @@ def vrati_drzave():
         return jsonify(result)
 
     elif flask.request.method == 'POST':
-        pass
+        print(flask.request.form)
+        for req in ['naziv']:
+            if req not in flask.request.form:
+                print('NOT IN')
+            else:
+                print('IN')
+                pass
     else:
         return json.dumps({'error':'method not allowed'})
         #abort(405)
@@ -59,7 +65,15 @@ def vrati_drzavu(ID):
             return render_template('404.html'), 404
 
     elif flask.request.method == 'PUT':
-        pass
+        data = Drzava.query.filter(Drzava.id == ID).first()
+        if data:
+            for arg in flask.request.args:
+                if arg == 'naziv':
+                    data.naziv = flask.request.args[arg]
+                elif arg == '':
+                    pass
+                db.session.commit()
+            return make_response(jsonify({'status': 'success'})), 200
 
     elif flask.request.method == 'DELETE':
         pass
@@ -102,7 +116,7 @@ def vrati_destinacije():
         return render_template('404.html'), 404
 
 
-@app.route('/api/destinacije/<int:ID>', methods=['GET', 'POST', 'DELETE'])
+@app.route('/api/destinacije/<int:ID>', methods=['GET', 'PUT', 'DELETE'])
 @validate_token
 def vrati_destinaciju(ID):
     """
@@ -117,22 +131,67 @@ def vrati_destinaciju(ID):
         else:
             return render_template('404.html')
 
-
-
     elif flask.request.method == 'PUT':
-        pass
-
+        data = Destinacija.query.filter(Destinacija.id == ID).first()
+        if data:
+            for arg in flask.request.args:
+                #if arg in data.__dict__:
+                    #data.__dict__[arg] = flask.request.args[arg]
+                    #print(data.__dict__)
+                if arg == 'naziv':
+                    data.naziv = flask.request.args[arg]
+                elif arg == 'cena_bus':
+                    data.cena_bus = flask.request.args[arg]
+                elif arg == 'cena_bus':
+                    data.cena_bus = flask.request.args[arg]
+                elif arg == 'cena_avion':
+                    data.cena_avion = flask.request.args[arg]
+                elif arg == 'cena_smestaj':
+                    data.cena_smestaj = flask.request.args[arg]
+                elif arg == 'zvezdice':
+                    data.zvezdice = flask.request.args[arg]
+                else:
+                    pass
+                db.session.commit()
+            return make_response(jsonify({'status': 'success'})), 200
     else:
-        return render_template('404.html'), 404
-
+        abort(404)
 
 @app.route('/api/admin/tokens', methods=['GET','PUT','POST', 'DELETE'])
 def token_manager():
     if flask.request.get('MIT-API-TOKEN') == 'secret_admin_token':
-        token_schema = ApiTokenSchema(many=True)
-        data = api_token.query.all()
-        result = token_schema.dump(data)
-        return result
+        if flask.request.method == 'GET':
+            token_schema = ApiTokenSchema(many=True)
+            data = api_token.query.all()
+            result = token_schema.dump(data)
+            return result
+        elif flask.request.method == 'PUT':
+            #if 'id' in flask.request.args:
+                data = api_token.query.filter(api_token.id == flask.request.args('id')).first()
+                if data:
+                    for arg in flask.request.args:
+                        #if arg in data.__dict__:
+                            #data.__dict__[arg] = flask.request.args[arg]
+                            #print(data.__dict__)
+                        if arg == 'token':
+                            data.token = flask.request.args[arg]
+                        elif arg == 'email':
+                            data.email = flask.request.args[arg]
+                        else:
+                            pass
+                        db.session.commit()
+                    return make_response(jsonify({'status': 'success'})), 200
+                else:
+                    pass
+            #else:
+            #    pass
+
+
+
+
+
+
+
     else:
         return vrati_404()
 

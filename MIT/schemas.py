@@ -6,7 +6,7 @@ class DrzavaSchema(ma.Schema):
 
 class DestinacijaSchema(ma.Schema):
     class Meta:
-        fiels = ('id', 'naziv', 'opis', 'zvezdice', 'cena_smestaj', 'cena_bus', 'cena_avion', 'last_min', 'drzava_id')
+        fields = ('id', 'naziv', 'opis', 'zvezdice', 'cena_smestaj', 'cena_bus', 'cena_avion', 'last_min', 'id_drzava')
 
 
 class ApiTokenSchema(ma.Schema):
