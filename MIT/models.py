@@ -44,8 +44,6 @@ class Destinacija(db.Model):
     cena_avion      = db.Column(db.Integer, unique=False)
     cena_bus        = db.Column(db.Integer, unique=False)
     last_min        = db.Column(db.Boolean, unique=False)
-    random          = db.Column(db.Integer, unique=False)
-    #aranzman        = db.relationship('Aranzman', backref='Destinacija', lazy=True)
 
     drzava          = db.relationship('Drzava', backref='drzava', lazy=True)
     id_drzava       = db.Column(db.Integer, db.ForeignKey('drzava.id'))
@@ -57,8 +55,6 @@ class Termin(db.Model):
     id              = db.Column(db.Integer, primary_key=True)
     dat_pol         = db.Column(db.DateTime)
     dat_dol         = db.Column(db.DateTime)
-
-    #aranzman        = db.relationship('Aranzman', backref='Termini', lazy=True)
 
 
 class api_token(db.Model):
