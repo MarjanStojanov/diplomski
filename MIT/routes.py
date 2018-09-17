@@ -33,8 +33,9 @@ def destinacija():
     return render_template('destinacija.html')
 
 
-
-
+@app.route('/onama', methods=['GET'])
+def onama():
+	return render_template('onama.html')
 
 @app.errorhandler(404)
 def vrati_404(error):
