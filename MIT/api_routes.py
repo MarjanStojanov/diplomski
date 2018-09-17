@@ -326,12 +326,12 @@ def token_manager():
         samo admini mogu da ga koriste, ako imaju secret_admin_token
         dozvoljava izmene, dodavanje i brisanje tokena
     """
-    if flask.request.get('MIT-API-TOKEN') == 'secret_admin_token':
+    if flask.request.headers.get('MIT-API-TOKEN') == 'secret_admin_token':
         if flask.request.method == 'GET':
             token_schema = ApiTokenSchema(many=True)
             data = api_token.query.all()
             result = token_schema.dump(data)
-            return result
+            return make_response(jsonify(result)),200
         elif flask.request.method == 'PUT':
                 data = api_token.query.filter(api_token.id == flask.request.args('id')).first()
                 if data:
