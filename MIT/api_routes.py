@@ -372,7 +372,15 @@ def token_manager():
                     return make_response(jsonify(result)), 200
 
         elif flask.request.method == 'DELETE':
-            pass
+            ID = flask.request.get_json()['token_id']
+            if ID:
+                ima = api_token.query.filter(api_token.id==ID).first()
+            if ima:
+                api_token.query.filter(api_token.id==ID).delete()
+                db.session.commit()
+                return make_response(jsonify({'status':'successfully deleted'})), 200
+            else:
+                return make_response(jsonify({'error':'could not find api token with that ID'})), 404
         else:
             err = flask.request.method + 'request not allowed'
             return make_response(jsonify({'error': err})), 405
