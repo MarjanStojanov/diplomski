@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 82116e256a23
+Revision ID: 7a8fcc9ace6a
 Revises: 
-Create Date: 2018-09-15 17:23:04.305000
+Create Date: 2018-09-17 20:07:04.835422
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '82116e256a23'
+revision = '7a8fcc9ace6a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,16 +26,6 @@ def upgrade():
     )
     op.create_index(op.f('ix_api_token_email'), 'api_token', ['email'], unique=True)
     op.create_index(op.f('ix_api_token_token'), 'api_token', ['token'], unique=True)
-    op.create_table('drzava',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('naziv', sa.String(length=64), nullable=True),
-    sa.Column('slika_URL', sa.String(length=250), nullable=True),
-    sa.Column('opis', sa.String(length=250), nullable=True),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_drzava_naziv'), 'drzava', ['naziv'], unique=True)
-    op.create_index(op.f('ix_drzava_opis'), 'drzava', ['opis'], unique=True)
-    op.create_index(op.f('ix_drzava_slika_URL'), 'drzava', ['slika_URL'], unique=True)
     op.create_table('kontinent',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('naziv', sa.String(length=64), nullable=True),
@@ -44,12 +34,18 @@ def upgrade():
     )
     op.create_index(op.f('ix_kontinent_naziv'), 'kontinent', ['naziv'], unique=True)
     op.create_index(op.f('ix_kontinent_slika_URL'), 'kontinent', ['slika_URL'], unique=True)
-    op.create_table('termin',
+    op.create_table('drzava',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('dat_pol', sa.DateTime(), nullable=True),
-    sa.Column('dat_dol', sa.DateTime(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.Column('naziv', sa.String(length=64), nullable=True),
+    sa.Column('slika_URL', sa.String(length=250), nullable=True),
+    sa.Column('opis', sa.String(length=250), nullable=True),
+    sa.Column('id_kontinent', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['id_kontinent'], ['kontinent.id'], ),
+    sa.PrimaryKeyConstraint('id', 'id_kontinent')
     )
+    op.create_index(op.f('ix_drzava_naziv'), 'drzava', ['naziv'], unique=True)
+    op.create_index(op.f('ix_drzava_opis'), 'drzava', ['opis'], unique=True)
+    op.create_index(op.f('ix_drzava_slika_URL'), 'drzava', ['slika_URL'], unique=True)
     op.create_table('destinacija',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('naziv', sa.String(length=64), nullable=True),
@@ -59,7 +55,6 @@ def upgrade():
     sa.Column('cena_avion', sa.Integer(), nullable=True),
     sa.Column('cena_bus', sa.Integer(), nullable=True),
     sa.Column('last_min', sa.Boolean(), nullable=True),
-    sa.Column('random', sa.Integer(), nullable=True),
     sa.Column('id_drzava', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['id_drzava'], ['drzava.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -68,11 +63,12 @@ def upgrade():
     op.create_index(op.f('ix_destinacija_opis'), 'destinacija', ['opis'], unique=True)
     op.create_index(op.f('ix_destinacija_zvezdice'), 'destinacija', ['zvezdice'], unique=False)
     op.create_table('aranzman',
-    sa.Column('id_termin', sa.Integer(), nullable=False),
-    sa.Column('id_dest', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['id_dest'], ['termin.id'], ),
-    sa.ForeignKeyConstraint(['id_termin'], ['destinacija.id'], ),
-    sa.PrimaryKeyConstraint('id_termin', 'id_dest')
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('id_destinacija', sa.Integer(), nullable=False),
+    sa.Column('dat_pol', sa.DateTime(), nullable=True),
+    sa.Column('dat_dol', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['id_destinacija'], ['destinacija.id'], ),
+    sa.PrimaryKeyConstraint('id', 'id_destinacija')
     )
     # ### end Alembic commands ###
 
@@ -84,14 +80,13 @@ def downgrade():
     op.drop_index(op.f('ix_destinacija_opis'), table_name='destinacija')
     op.drop_index(op.f('ix_destinacija_naziv'), table_name='destinacija')
     op.drop_table('destinacija')
-    op.drop_table('termin')
-    op.drop_index(op.f('ix_kontinent_slika_URL'), table_name='kontinent')
-    op.drop_index(op.f('ix_kontinent_naziv'), table_name='kontinent')
-    op.drop_table('kontinent')
     op.drop_index(op.f('ix_drzava_slika_URL'), table_name='drzava')
     op.drop_index(op.f('ix_drzava_opis'), table_name='drzava')
     op.drop_index(op.f('ix_drzava_naziv'), table_name='drzava')
     op.drop_table('drzava')
+    op.drop_index(op.f('ix_kontinent_slika_URL'), table_name='kontinent')
+    op.drop_index(op.f('ix_kontinent_naziv'), table_name='kontinent')
+    op.drop_table('kontinent')
     op.drop_index(op.f('ix_api_token_token'), table_name='api_token')
     op.drop_index(op.f('ix_api_token_email'), table_name='api_token')
     op.drop_table('api_token')
