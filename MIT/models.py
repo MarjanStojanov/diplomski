@@ -32,6 +32,9 @@ class Aranzman(db.Model):
 
     destinacija     = db.relationship('Destinacija', backref='Aranzman', lazy=True)
     termin          = db.relationship('Termin', backref='Aranzman', lazy=True)
+    
+    dat_pol         = db.Column(db.DateTime)
+    dat_dol         = db.Column(db.DateTime)
 
 
 class Destinacija(db.Model):
@@ -53,8 +56,6 @@ class Destinacija(db.Model):
 class Termin(db.Model):
     __table_args__  = {'extend_existing': True}
     id              = db.Column(db.Integer, primary_key=True)
-    dat_pol         = db.Column(db.DateTime)
-    dat_dol         = db.Column(db.DateTime)
 
 
 class api_token(db.Model):
