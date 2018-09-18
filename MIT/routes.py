@@ -35,14 +35,24 @@ def destinacija():
     return render_template('destinacija.html')
 
 
+<<<<<<< HEAD
+@app.route('/onama', methods=['GET'])
+def onama():
+	return render_template('onama.html')
+=======
 @app.route('/onama')
 def onama():
     return render_template('onama.html')
 
+<<<<<<< HEAD
 @app.route('/kontakt')
 def kontakt():
 	pass
 	
+=======
+>>>>>>> api_routing
+
+>>>>>>> d04f0055ee1be554b01bbafcf66c068074820385
 @app.errorhandler(404)
 def vrati_404(error):
     return render_template('404.html'), 404
