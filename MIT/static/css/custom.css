@@ -69,39 +69,8 @@ width: 100vw;
 	min-height:25vw;
   border-radius: 5px;
 
-	font-family:Scratchy;
 }
 
-.container-fluid.zaprati{
-  background-image: url('../imgs/find.jpg');
-  background-position: top right;
-
-}
-#baner_zaprati{
-  height: 25vh;
-  margin: auto;
-  width: 50%;
-  border-radius: 2px solid red;
-}
-
-#btn_zaprati{
-  border-radius: 10px;
-  font-size: 1em;
-  font-family: Scratchy;
-  width: 15vw;
-  display: inline;
-  margin-top: 6vw;
-
-}
-
-
-#txt_email{
-  font-size: 1em;
-  border-radius: 10px;
-  font-family: Scratchy;
-  width: 30vw;
-  display: inline;
-}
 
 
 .col.dest{
@@ -140,16 +109,6 @@ img.last_min_img{
   margin: auto;
 
 }
-
-#futer_section{
-  background-image: linear-gradient(to right, rgb(255, 5, 52), transparent, transparent);
-
-  font-family: Scratchy;
-}
-p, h6{
-  font-family: Scratchy;
-}
-
 
 
 @media(max-width: 1000px)

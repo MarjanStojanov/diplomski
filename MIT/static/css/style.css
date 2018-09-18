@@ -40,18 +40,17 @@ body{
 .navbar-light .navbar-nav .active>.nav-link:active, .dropdown-item:active{
     color:#ff5e13;
 }
-.btn-outline-success, body > div.jumbotron > a{
+.btn-outline-success{
     border-color: #ff5e13;
     color: #ff5313;
     background-color: transparent;
 }
-.btn-outline-success:hover, body > div.jumbotron > a:hover{
+.btn-outline-success:hover{
     border-color: #fff;
     color: #fff;
     background-color: #ff5e13;
-    background
 }
-.btn-outline-success:active, body > div.jumbotron > a:active{
+.btn-outline-success:active{
     border-color: #fff;
     color: #fff;
     background-color: #ff5e13;
@@ -81,6 +80,7 @@ h2,h4{
   background-position: top right;
 
 }
+
 #baner_zaprati{
   height: 25vh;
   margin: auto;

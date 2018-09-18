@@ -1,10 +1,5 @@
-html{
-  height: 100%;
 
-}
 body{
-  height: auto;
-  width: 100vw;
     background-image: url('../imgs/sto.jpg');
     background-repeat: repeat-y;
     background-position: top left;
@@ -12,67 +7,12 @@ body{
 }
 
 .jumbotron{
-  background-color: transparent;
   height: auto;
-  color:white;
-  margin: 0px;
-  font-family: Scratchy;
-  padding-top:5px;
-  width: 100vw;
 }
 h2,h4{
   margin: 2vw auto;
-  font-family: Scratchy;
   text-align: center;
 
-}
-@font-face {
-    font-family: Scratchy;
-    src: url('../fonts/Widescratch Italic.ttf');
-}
-
-.navbar.navbar-expand-lg.navbar-light.bg-light{
-  background-image: url('../imgs/find.jpg');
-  height: 14%;
-  border-radius: 30px;
-  padding: 10px;
-  width: 97%;
-  margin: 3vw auto;
-  opacity: 1;
-/*  position: fixed;*/
-}
-
-.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand,
-.navbar-light .navbar-nav .active>.nav-link {
-  color: white;
-}
-.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-brand:hover,
-.navbar-light .navbar-nav .active>.nav-link:hover, .dropdown-item:hover{
-  color:#ff5e13;
-}
-.navbar-light .navbar-nav .nav-link:active, .navbar-light .navbar-brand:active,
-.navbar-light .navbar-nav .active>.nav-link:active, .dropdown-item:active{
-  color:#ff5e13;
-}
-.btn-outline-success, body > div.jumbotron > a{
-border-color: #ff5e13;
-color: #ff5313;
-background-color: transparent;
-}
-.btn-outline-success:hover, body > div.jumbotron > a:hover{
-border-color: #fff;
-color: #fff;
-background-color: #ff5e13;
-}
-.btn-outline-success:active, body > div.jumbotron > a:active{
-border-color: #fff;
-color: #fff;
-background-color: #ff5e13;
-}
-
-.container{
-  width:95%;
-  margin: 3vw auto;
 }
 
 #navbarSupportedContent > form > input{
@@ -80,72 +20,6 @@ background-color: #ff5e13;
 }
 .form-inline .form-control{
   width:10vw;
-}
-
-.last_min_span{
-  font-family:Scratchy;
-  font-size:4em;
-  font-weight:500;
-}
-
-#last_min_h2{
-  width: 50%;
-  margin: auto;
-  display: block;
-  padding-top: 50px;
-  font-size: 3em;
-  color: white;
-}
-
-#last_min_offer{
-	background-image:linear-gradient( to top, transparent, rgb(254, 196, 34) );
-	margin:10vw 3vw;
-	min-height:25vw;
-  border-radius: 5px;
-
-	font-family:Scratchy;
-}
-
-.container-fluid.zaprati{
-  background-image: url('../imgs/find.jpg');
-  background-position: top right;
-
-}
-#baner_zaprati{
-  height: 25vh;
-  margin: auto;
-  width: 50%;
-  border-radius: 2px solid red;
-}
-
-#btn_zaprati{
-  border-radius: 10px;
-  font-size: 1em;
-  font-family: Scratchy;
-  width: 15vw;
-  display: inline;
-  margin-top: 6vw;
-
-}
-
-
-#txt_email{
-  font-size: 1em;
-  border-radius: 10px;
-  font-family: Scratchy;
-  width: 30vw;
-  display: inline;
-}
-
-
-
-#futer_section{
-  background-image: linear-gradient(to right, rgb(255, 5, 52), transparent, transparent);
-
-  font-family: Scratchy;
-}
-p, h6{
-  font-family: Scratchy;
 }
 
 

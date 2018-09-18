@@ -2,11 +2,7 @@
 body{
     background-image: url('../imgs/svett.jpg');
     background-position: top left;
-}
-
-.container{
-  width:95%;
-  margin: 3vw auto;
+    background-size: cover;
 }
 
 .container img{
@@ -15,25 +11,13 @@ body{
   display: block;
   border-radius: 150px;
 }
-
+.jumbotron{
+  height: auto;
+}
 .container-fluid{
   background-position: bottom right;
 }
 
-#last_minute_banner.col{
-  margin: 0px;
-}
-#last_minute_banner{
-margin:auto;
-background-image: url('../imgs/as.jpg');
-background-repeat:no-repeat;
-background-position:top left;
-background-size:cover;
-min-height: 100vh;
-max-height: auto;
-width: 100vw;
-
-}
 
 #navbarSupportedContent > form > input{
   width:10vw;
@@ -42,60 +26,13 @@ width: 100vw;
   width:10vw;
 }
 
-.last_min_span{
-  font-family:Scratchy;
-  font-size:4em;
-  font-weight:500;
-}
 
-#last_min_h2{
-  width: 50%;
-  margin: auto;
+
+
+#coin_link{
   display: block;
-  padding-top: 50px;
-  font-size: 3em;
-  color: white;
 }
 
-#last_min_offer{
-	background-image:linear-gradient( to top, transparent, rgb(254, 196, 34) );
-	margin:10vw 3vw;
-	min-height:25vw;
-  border-radius: 5px;
-
-	font-family:Scratchy;
-}
-
-.container-fluid.zaprati{
-  background-image: url('../imgs/find.jpg');
-  background-position: top right;
-
-}
-#baner_zaprati{
-  height: 25vh;
-  margin: auto;
-  width: 50%;
-  border-radius: 2px solid red;
-}
-
-#btn_zaprati{
-  border-radius: 10px;
-  font-size: 1em;
-  font-family: Scratchy;
-  width: 15vw;
-  display: inline;
-  margin-top: 6vw;
-
-}
-
-
-#txt_email{
-  font-size: 1em;
-  border-radius: 10px;
-  font-family: Scratchy;
-  width: 30vw;
-  display: inline;
-}
 
 
 .col.dest{
@@ -109,31 +46,6 @@ width: 100vw;
 }
 
 
-img.last_min_img{
-  max-height: 250px;
-  width: 600px;
-  border-radius: 100px;
-  margin: auto;
-  margin-bottom:  30px;
-  box-shadow: 30px 30px 70px black;
-  display: block;
-}
-.last_min_info_btn.btn-outline-success{
-  border-radius: 15px;
-  border: 1px solid black;
-  color: black;
-  font-size: 1.5em;
-  display: block;
-  width: 25vw;
-  margin: auto;
-
-}
-
-#futer_section{
-  background-image: linear-gradient(to right, rgb(255, 5, 52), transparent, transparent);
-
-  font-family: Scratchy;
-}
 p, h6{
   font-family: Scratchy;
 }
