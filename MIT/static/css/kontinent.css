@@ -17,7 +17,6 @@ body{
   color:white;
   margin: 0px;
   font-family: Scratchy;
-  padding:0px;
   padding-top:5px;
   width: 100vw;
 }
@@ -157,6 +156,7 @@ p, h6{
   background-image: url('../imgs/papir.jpg');
   background-size: cover;
   transition: width 0.5s, height 0.5s, box-shadow 0.4s;
+  display: none;
 }
 
 .polaroid:hover {
@@ -165,6 +165,7 @@ p, h6{
   height: 45vh;
   box-shadow: 10px 10px 80px 20px black;
   cursor: pointer;
+
 }
 
 .sto{

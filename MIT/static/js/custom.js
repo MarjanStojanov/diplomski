@@ -32,6 +32,19 @@ function kontinent()
 
     sto = document.getElementById("sto")
 
+    polaroidi = document.getElementsByClassName("polaroid")
+
+    for (i=0;i<polaroidi.length;i++)
+    {
+
+      top1 = '' + (Math.floor(Math.random() * 400 + 50)) + "px"
+      left = '' + (Math.floor(Math.random() * 1400)) + "px"
+      polaroidi[i].style.setProperty('left', left)
+      polaroidi[i].style.setProperty('top', top1)
+      polaroidi[i].style.setProperty('transform','rotate('+ Math.floor(Math.random() * 160 - 80)  +'deg)')
+      polaroidi[i].style.setProperty('display','block')
+    }
+/*
   for (i=0;i<6;i++)
   {
       top1 = '' + (Math.floor(Math.random() * 400 + 50)) + "px"
@@ -54,7 +67,7 @@ function kontinent()
       sto.append(div)
   }
 
-
+*/
 }
 
 
@@ -102,7 +115,7 @@ function otvori(a)
 
   url = a.innerHTML.split('/coin/')[1].split('.jpg')[0]
 
-  a.href = "/kontinent/" + url.toLowerCase().replace('.','') //zbog s.amerika i j.amerika
+  a.href = "/kontinent/" + url.toLowerCase().replace('.','') + "/drzave" //zbog s.amerika i j.amerika
   a.click()
 
 

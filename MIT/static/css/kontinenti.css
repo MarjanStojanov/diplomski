@@ -1,74 +1,7 @@
-html{
-  height: 100%;
 
-}
 body{
-  height: 100%;
-  width: 100vw;
     background-image: url('../imgs/svett.jpg');
-    background-repeat: no-repeat;
     background-position: top left;
-}
-
-.jumbotron{
-  background-color: transparent;
-  height: auto;
-  color:white;
-  margin: 0px;
-  font-family: Scratchy;
-  padding:20px;
-  padding-top:5px;
-  width: 100vw;
-}
-h2,h4{
-  margin: 2vw auto;
-  font-family: Scratchy;
-  text-align: center;
-
-}
-@font-face {
-    font-family: Scratchy;
-    src: url('../fonts/Widescratch Italic.ttf');
-}
-
-.navbar.navbar-expand-lg.navbar-light.bg-light{
-  background-image: url('../imgs/find.jpg');
-  height: 14%;
-  border-radius: 30px;
-  padding: 10px;
-  width: 97%;
-  margin: 3vw auto;
-  opacity: 1;
-/*  position: fixed;*/
-}
-
-.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand,
-.navbar-light .navbar-nav .active>.nav-link {
-  color: white;
-}
-.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-brand:hover,
-.navbar-light .navbar-nav .active>.nav-link:hover, .dropdown-item:hover{
-  color:#ff5e13;
-}
-.navbar-light .navbar-nav .nav-link:active, .navbar-light .navbar-brand:active,
-.navbar-light .navbar-nav .active>.nav-link:active, .dropdown-item:active{
-  color:#ff5e13;
-}
-.btn-outline-success, body > div.jumbotron > a{
-border-color: #ff5e13;
-color: #ff5313;
-background-color: transparent;
-}
-.btn-outline-success:hover, body > div.jumbotron > a:hover{
-border-color: #fff;
-color: #fff;
-background-color: #ff5e13;
-background
-}
-.btn-outline-success:active, body > div.jumbotron > a:active{
-border-color: #fff;
-color: #fff;
-background-color: #ff5e13;
 }
 
 .container{

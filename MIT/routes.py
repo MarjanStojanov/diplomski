@@ -15,12 +15,14 @@ def kontinenti():
     return render_template('kontinenti.html')
 
 
-@app.route('/kontinent/<string:kont>', methods=['GET'])
+@app.route('/kontinent/<string:kont>/drzave', methods=['GET'])
 def kontinent(kont):
-    kontinent = Kontinent.query.filter_by(naziv = kont)
-    print(kont)
-    print(kontinent)
-    return render_template('kontinent.html', knt = kontinent)
+	print(kont)
+	kontinent = Kontinent.query.filter(Kontinent.naziv == kont).first()
+
+	drzave = Drzava.query.filter(Drzava.id_kontinent == kontinent.id).all()
+
+	return render_template('kontinent.html', knt = kontinent, drzave = drzave)
 
 
 @app.route('/drzava/<string:drz>', methods=['GET'])
@@ -37,7 +39,10 @@ def destinacija():
 def onama():
     return render_template('onama.html')
 
-
+@app.route('/kontakt')
+def kontakt():
+	pass
+	
 @app.errorhandler(404)
 def vrati_404(error):
     return render_template('404.html'), 404
