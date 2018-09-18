@@ -1,8 +1,6 @@
 
 body{
-    background-image: url('../imgs/svett.jpg');
-    background-position: top left;
-    background-size: cover;
+    height: auto;
 }
 
 .container img{
@@ -12,7 +10,10 @@ body{
   border-radius: 150px;
 }
 .jumbotron{
-  height: auto;
+    background-image: url('../imgs/svett.jpg');
+    background-position: top left;
+    background-size: cover;
+    height: auto;
 }
 .container-fluid{
   background-position: bottom right;
@@ -26,14 +27,9 @@ body{
   width:10vw;
 }
 
-
-
-
 #coin_link{
   display: block;
 }
-
-
 
 .col.dest{
   width: 45%;
@@ -45,12 +41,9 @@ body{
   margin: auto;
 }
 
-
 p, h6{
   font-family: Scratchy;
 }
-
-
 
 @media(max-width: 1000px)
 {
@@ -66,7 +59,6 @@ p, h6{
       display: inline;
 
     }
-
 
     #txt_email{
       margin-top:2vh;

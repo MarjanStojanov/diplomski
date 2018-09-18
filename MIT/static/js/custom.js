@@ -37,8 +37,8 @@ function kontinent()
     for (i=0;i<polaroidi.length;i++)
     {
 
-      top1 = '' + (Math.floor(Math.random() * 400 + 50)) + "px"
-      left = '' + (Math.floor(Math.random() * 1400)) + "px"
+      top1 = '' + (Math.floor(Math.random() * 50)) + "%"
+      left = '' + (Math.floor(Math.random() * 80)) + "%"
       polaroidi[i].style.setProperty('left', left)
       polaroidi[i].style.setProperty('top', top1)
       polaroidi[i].style.setProperty('transform','rotate('+ Math.floor(Math.random() * 160 - 80)  +'deg)')
