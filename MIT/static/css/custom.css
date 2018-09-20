@@ -1,14 +1,15 @@
 
-body{
-    background-image: url('../imgs/home.jpg');
-    background-position: center bottom;
-}
-
 .container{
   width:95%;
   margin: 3vw auto;
 }
 
+.jumbotron{
+
+    background-image: url('../imgs/home.jpg');
+    background-position: center bottom;
+    background-size: cover;
+}
 .container img{
   height: 15vw;
   margin: auto;

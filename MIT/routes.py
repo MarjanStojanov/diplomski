@@ -19,21 +19,26 @@ def kontinenti():
 def kontinent(kont):
 	print(kont)
 	kontinent = Kontinent.query.filter(Kontinent.naziv == kont).first()
-
-	drzave = Drzava.query.filter(Drzava.id_kontinent == kontinent.id).all()
-
-	return render_template('kontinent.html', knt = kontinent, drzave = drzave)
+	if kontinent:
+		drzave = Drzava.query.filter(Drzava.id_kontinent == kontinent.id).all()
+		return render_template('kontinent.html', knt = kontinent, drzave = drzave)
 
 
 @app.route('/drzava/<string:drz>', methods=['GET'])
 def drzava(drz):
-    return render_template('drzava.html')
+	drzava = Drzava.query.filter(Drzava.naziv==drz).first()
+	if drzava:
+		destinacije = Destinacija.query.filter(id_drzava == drzava.id).all()
+    	return render_template('drzava.html', drzava=drz, dest= destinacije)
 
 
-@app.route('/destinacija', methods=['GET'])
-def destinacija():
-    return render_template('destinacija.html')
+@app.route('/destinacija/<string:dest>', methods=['GET'])
+def destinacija(dest):
+	dest = Destinacija.query.filter(Destinacija.naziv==dest).first()
+	if dest:
+		return render_template('destinacija.html', dest=dest)
 
+	return render_template('destinacija.html')
 
 @app.route('/onama', methods=['GET'])
 def onama():
@@ -41,7 +46,10 @@ def onama():
 
 @app.route('/kontakt', methods=['GET'])
 def kontakt():
-	pass
+	return render_template('kontakt.html')
+
+
+
 
 @app.errorhandler(404)
 def vrati_404(error):

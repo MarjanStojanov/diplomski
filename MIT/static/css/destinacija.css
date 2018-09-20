@@ -1,0 +1,90 @@
+
+body{
+}
+
+.jumbotron{
+	background-image: url('../imgs/dest.jpg');
+	background-size: cover;
+	height: auto;
+	color: black;
+}
+
+.main_div > *{
+	width: 80%;
+	margin:auto;
+	height: 50vh;
+}
+
+#slika{
+	width:95%;
+	margin: auto;
+	display: block;
+	height: 45vh;
+	border-radius: 30px;
+}
+
+.naslov{
+	text-align: center;
+	width: 49.5%; 
+	padding:25px;
+	position: absolute;
+	left: 5px;
+	top:5px;
+	bottom:5px;
+}
+
+.bot_div{
+	position: relative;
+	background-image:url('../imgs/find.jpg');
+	color: white;
+}
+
+h2,h3{
+	width: 40%;
+	margin:auto;
+	padding: 5px;
+}
+
+.opis_ponude{
+	width: 80%;
+	margin:auto;
+	text-align: justify;
+	padding:25px;
+}
+
+.info{
+	position: absolute;
+	right: 5px;
+	top:5px;
+	bottom:5px;
+	width: 49.5%;
+}
+
+.row{
+	position: relative;
+	width: 100%;
+	min-height: 100px;
+	margin: 10px;
+	font-size: 40px;
+	text-align: left;
+}
+
+.cene{
+	font-size: 40px;
+	width: 25%;
+	margin: 8px;
+}
+
+#rezervisi{
+	width:50%;
+	height: 100%;
+	margin: auto;
+	border-radius: 20px;
+}
+
+.stars{
+	position: absolute;
+	right: 70px;
+	color: gold;
+
+}
