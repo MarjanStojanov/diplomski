@@ -60,11 +60,11 @@ h2,h3{
 	width: 49.5%;
 }
 
-.row{
+.row2{
 	position: relative;
 	width: 100%;
 	min-height: 100px;
-	margin: 10px;
+	margin: 15px;
 	font-size: 40px;
 	text-align: left;
 }
@@ -73,6 +73,7 @@ h2,h3{
 	font-size: 40px;
 	width: 25%;
 	margin: 8px;
+	display: inline;
 }
 
 #rezervisi{
@@ -84,7 +85,8 @@ h2,h3{
 
 .stars{
 	position: absolute;
-	right: 70px;
+	right: 260px;
+	display: inline-block;
 	color: gold;
 
 }
