@@ -29,16 +29,18 @@ def drzava(drz):
 	drzava = Drzava.query.filter(Drzava.naziv==drz.title()).first()
 	if drzava:
 		destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id).all()
-                return render_template('drzava.html', drzava=drzava, dest= destinacije)
+        return render_template('drzava.html', drzava=drzava, dest = destinacije)
 
 
 @app.route('/destinacija/<string:dest>', methods=['GET'])
 def destinacija(dest):
-	dest = Destinacija.query.filter(Destinacija.naziv==dest).first()
-	if dest:
-		return render_template('destinacija.html', dest=dest)
-
-	return render_template('destinacija.html')
+    dest = Destinacija.query.filter(Destinacija.naziv==dest).first()
+    print(dest)
+    if dest:
+        aranzmani = Aranzman.query.filter(Aranzman.id_destinacija==dest.id).all()
+        print(aranzmani)
+        return render_template('destinacija.html', dest=dest, aranzmani = aranzmani)
+    return render_template('404.html')
 
 @app.route('/onama', methods=['GET'])
 def onama():

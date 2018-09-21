@@ -25,18 +25,20 @@ body{
 
 .naslov{
 	text-align: center;
-	width: 49.5%; 
+	width: 49.5%;
 	padding:25px;
 	position: absolute;
 	left: 5px;
 	top:5px;
 	bottom:5px;
+	border: 1px solid red;
 }
 
 .bot_div{
 	position: relative;
 	background-image:url('../imgs/find.jpg');
 	color: white;
+	height: auto;
 }
 
 h2,h3{
@@ -54,39 +56,73 @@ h2,h3{
 
 .info{
 	position: absolute;
-	right: 5px;
-	top:5px;
+	right: 0px;
+	top:0px;
 	bottom:5px;
 	width: 49.5%;
+	border: 1px solid yellow;
 }
 
 .row2{
 	position: relative;
-	width: 100%;
-	min-height: 100px;
+	width: 95%;
+	min-height: 70px;
 	margin: 15px;
 	font-size: 40px;
 	text-align: left;
+	border-radius: 10px;
 }
-
 .cene{
-	font-size: 40px;
-	width: 25%;
+	padding: 10px;
+	font-size: 30px;
 	margin: 8px;
+	margin-left: 13%;
 	display: inline;
+	border-radius: 10px;
+	transition: all 0.3s ease;
 }
-
+.cene:hover{
+		background-color: yellow;
+		color: black;
+		cursor: pointer;
+}
 #rezervisi{
 	width:50%;
 	height: 100%;
 	margin: auto;
+	display: block;
+	margin-top: 10px;
 	border-radius: 20px;
 }
 
 .stars{
 	position: absolute;
-	right: 260px;
+	right: 10%;;
+	top:5px;
 	display: inline-block;
 	color: gold;
 
+}
+.poldol{
+	padding: 20px 0px;
+	cursor: pointer;
+	font-size: 20px;
+	text-align: center;
+	width: 100%;
+	margin-top: 3%;
+}
+.poldol:hover{
+		background-color: yellow;
+		color: black;
+}
+@media(max-width:1000px)
+{
+	.info, naslov{
+		position: relative;
+		display: block;
+		top:auto;
+		left: auto;
+		right: auto;
+
+	}
 }

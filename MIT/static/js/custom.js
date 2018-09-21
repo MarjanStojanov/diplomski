@@ -132,3 +132,39 @@ function poseti(a)
   a.href = '/drzava/' + dest.toLowerCase().replace(' ','')
   a.click()
 }
+
+
+function destinacija(){
+  cene = document.getElementsByClassName('cene')
+
+  for (i=0;i<cene.length;i++)
+    {
+      cene[i].addEventListener('click', function(){
+        for (i=0;i<cene.length;i++)
+          {
+            cene[i].style.setProperty('background-color','transparent')
+            cene[i].style.setProperty('color','white')
+          }
+        this.style.setProperty('background-color','yellow')
+        this.style.setProperty('color','black')
+
+      })
+    }
+
+
+  ter = document.getElementsByClassName('poldol')
+
+  for (i=0;i<ter.length;i++)
+    {
+      ter[i].addEventListener('click', function(){
+        for (i=0;i<ter.length;i++)
+          {
+            ter[i].style.setProperty('background-color','transparent')
+            ter[i].style.setProperty('color','white')
+          }
+        this.style.setProperty('background-color','yellow')
+        this.style.setProperty('color','black')
+
+      })
+    }
+}
