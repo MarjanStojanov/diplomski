@@ -39,10 +39,13 @@
       </div>
     -->
     {% for drzava in drzave %}
-       <div class="polaroid" id="a1">
-          <img src={{drzava.slika_url}} class="slika_u_pol" alt=""/>
-          <h4>{{drzava.naziv}}</h4>
-       </div>
+    <a href="#"  onclick="poseti(this)">
+      <div class="polaroid" id="a1">
+         <img src={{url_for('static', filename=drzava.slika_URL)}} class="slika_u_pol" alt=""/>
+         <h4>{{drzava.naziv}}</h4>
+      </div>
+    </a>
+
 
     {% endfor %}
 
