@@ -4,16 +4,16 @@
 }
 *{
     font-family: Scratchy;
+    border:solid;
 }
 
 html,body{
-  max-width: 99vw;
   overflow-x:hidden;
 }
 
 body{
     height: 100%;
-    width: 100vw;
+    width: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -70,7 +70,7 @@ h2,h4{
   color:white;
   margin: 0px;
   padding-top:5px;
-  width: 100vw;
+  width: auto;
   height: 100vh;
 }
 
