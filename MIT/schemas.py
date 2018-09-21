@@ -6,7 +6,7 @@ class KontinentSchema(ma.Schema):
 class DrzavaSchema(ma.Schema):
     class Meta:
         # Fields to expose
-        fields = ('naziv', 'id', 'opis','id_kontinent')
+        fields = ('naziv', 'id', 'opis','id_kontinent', 'slika_URL')
 
 class DestinacijaSchema(ma.Schema):
     class Meta:
