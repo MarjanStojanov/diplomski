@@ -74,36 +74,58 @@ function kontinent()
 
 function drzava()
 {
+
+
+  destinacije = document.getElementsByClassName('glavni')
+  levo = document.getElementsByClassName('levo')
+  desno = document.getElementsByClassName('desno')
+  destinacije[0].style.display='block'
   b = 0
-  temp_niz = ['t1','t2','t3','t4']
   centar = document.getElementById('glavni')
-  desno  = document.getElementById('desno')
-  levo   = document.getElementById('levo')
-  naslov = document.getElementById('naslov')
-  tekst  = document.getElementById('tekst')
-//TODO: XMLhttpRequest get all images on page onload and put them in array
 
-  desno.addEventListener('click',function()
-  {
-      centar.style.setProperty('opacity','0')
-      naslov.innerHTML=temp_niz[b++]
-      tekst.innerHTML = Math.random()
-      setTimeout(function()
-      {
-        centar.style.setProperty('opacity','1')
-      },350)
-  });
-
-    levo.addEventListener('click',function()
+    for(i=0;i<desno.length;i++)
     {
-        centar.style.setProperty('opacity','0')
-        naslov.innerHTML=temp_niz[b--]
-        tekst.innerHTML = Math.random()
-        setTimeout(function()
+  alert(desno[i])
+      desno[i].addEventListener('click',function()
+      {
+          centar.style.setProperty('opacity','0')
+
+            destinacije[b].style.display='none'
+            destinacije[b++].style.display='block'
+          setTimeout(function()
+          {
+            centar.style.setProperty('opacity','1')
+          },350)
+      });
+
+        levo[i].addEventListener('click',function()
         {
-          centar.style.setProperty('opacity','1')
-        },350)
-    });
+            centar.style.setProperty('opacity','0')
+
+            destinacije[b].style.display='none'
+            destinacije[b--].style.display='block'
+            
+            setTimeout(function()
+            {
+              centar.style.setProperty('opacity','1')
+            },350)
+        });
+    }
+  
+
+    button = document.getElementById('klik')
+    button.addEventListener('click', function(){ 
+
+        btn = document.getElementById('saznaj')
+        naslov = document.getElementById('naslov').innerHTML
+        btn.href = '/destinacija/' + naslov.toLowerCase()
+
+        btn.click()
+    })
+
+
+
+
 }
 
 
@@ -174,4 +196,17 @@ function destinacija(){
         }
       })
     }
+}
+
+
+function pretraga(a)
+{
+  keyword = document.getElementById('searchbar')
+  a.addEventListener('click',function(e){
+
+  alert(keyword.value.toLowerCase())
+
+ a.href = '/search/' + keyword.value.toLowerCase()
+ a.click()
+  })
 }

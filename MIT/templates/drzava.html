@@ -36,33 +36,35 @@
       <p class="lead">Ostalo je samo da izaberete hotel i lokaciju :)</p>
 
 
-      <div id="glavni">
+{% for des in dest %}
+      <div class="glavni">
 
         <img src={{url_for('static',filename="imgs/offers.jpg")}} class="slika">
           <div class="opis">
             <h3 class="tekst" id="naslov">
-            Title 1
+            {{des.naziv}}
           </h3>
           <p class="tekst" id="tekst">
-            Description for title 1, lorem ipsum is boring :P
+            {{des.opis}}
           </p>
           </div>
           <div class="navigate">
-            <button class="nav_btn left" id="levo">
+            <button class="nav_btn left" class="levo">
               <i class="fas fa-arrow-alt-circle-left"></i>
             </button>
-
-            <button class="nav_btn_centar">
+            <a id="saznaj" href="">
+            <button id="klik" class="nav_btn_centar">
               Saznaj vise
             </button>
+            </a>
 
-            <button class="nav_btn right" id="desno">
+            <button class="nav_btn right" class="desno">
             <i class="fas fa-arrow-alt-circle-right"></i>
             </button>
           </div>
 
       </div>
-
+{% endfor %}
 
   </div>
 

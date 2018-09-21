@@ -51,6 +51,14 @@ def kontakt():
 	return render_template('kontakt.html')
 
 
+@app.route('/search/<string:keyword>', methods=['GET'])
+def pretraga(keyword):
+    drzava = Drzava.query.filter(Drzava.naziv.like(keyword)).first()
+    if drzava:
+        destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id ).all()       
+    return render_template('pretraga.html', drzave = drzava, destinacije = destinacije)
+
+
 
 
 @app.errorhandler(404)
