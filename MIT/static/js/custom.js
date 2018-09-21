@@ -140,15 +140,19 @@ function destinacija(){
   for (i=0;i<cene.length;i++)
     {
       cene[i].addEventListener('click', function(){
-        for (i=0;i<cene.length;i++)
-          {
-            cene[i].style.setProperty('background-color','transparent')
-            cene[i].style.setProperty('color','white')
-          }
-        this.style.setProperty('background-color','yellow')
-        this.style.setProperty('color','black')
-
-      })
+        if(this.innerHTML.includes('N/A'))
+          return
+              if (this.style.backgroundColor == 'yellow')
+              {
+                this.style.setProperty('background-color','transparent')
+                this.style.setProperty('color','white')
+              }
+              else
+              {
+                this.style.setProperty('background-color','yellow')
+                this.style.setProperty('color','black')
+              }
+        })
     }
 
 
@@ -156,15 +160,18 @@ function destinacija(){
 
   for (i=0;i<ter.length;i++)
     {
-      ter[i].addEventListener('click', function(){
-        for (i=0;i<ter.length;i++)
-          {
-            ter[i].style.setProperty('background-color','transparent')
-            ter[i].style.setProperty('color','white')
-          }
-        this.style.setProperty('background-color','yellow')
-        this.style.setProperty('color','black')
-
+      ter[i].addEventListener('click', function()
+      {
+        if (this.style.backgroundColor == 'yellow')
+        {
+          this.style.setProperty('background-color','transparent')
+          this.style.setProperty('color','white')
+        }
+        else
+        {
+          this.style.setProperty('background-color','yellow')
+          this.style.setProperty('color','black')
+        }
       })
     }
 }

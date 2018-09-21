@@ -28,73 +28,73 @@
           <h1 class="display-4">Cestitamo, stigli ste do kraja nase avanture! </h1>
           <p class="lead">Ili je ovo samo pocetak?</p>
 
-<!-- SVE O DESTINACIJI -->
+        <!-- SVE O DESTINACIJI -->
 
 
 
-        <div class="main_div">
-          <div class="top_div">
-            <img src={{url_for('static',filename='imgs/offers.jpg')}} alt="" id="slika">
-          </div>
-          <div class="bot_div">
-            <div class="naslov">
-              <h2>{{ dest.naziv }}</h2>
-              <h3>{{ dest.hotel }}</h3>
-              <p class="opis_ponude">
-                {{ dest.opis }}
-              </p>
-            </div>
-            <div class="info">
-              <div class="row2">
-                <p>Ocena: </p>
-                <div class="stars">
-                  {% for i in range(dest.zvezdice) %}
-                    <i class="fas fa-star"></i>
-                  {% endfor %}
-                </div>
+                <div class="main_div">
+                  <div class="top_div">
+                    <img src={{url_for('static',filename='imgs/offers.jpg')}} alt="" id="slika">
+                  </div>
+                  <div class="bot_div">
+                    <div class="naslov">
+                      <h2>{{ dest.naziv }}</h2>
+                      <h3>{{ dest.hotel }}</h3>
+                      <p class="opis_ponude">
+                        {{ dest.opis }}
+                      </p>
+                    </div>
+                    <div class="info">
+                      <div class="row2">
+                        <p id="ocena">Ocena: </p>
+                        <div class="stars">
+                          {% for i in range(dest.zvezdice) %}
+                            <i class="fas fa-star"></i>
+                          {% endfor %}
+                        </div>
+                      </div>
+
+                      <div class="row2">
+                      <p class="cene">
+                        <i class="fas fa-bed"></i>
+                              {% if dest.cena_smestaj %}
+                                {{dest.cena_smestaj}}
+                              {% else %}
+                                N/A
+                              {% endif %}
+                      </p>
+
+                      <p class="cene">
+                        <i class="fas fa-bus"></i>
+                            {% if dest.cena_bus %}
+                              {{dest.cena_bus}}
+                            {% else %}
+                              N/A
+                            {% endif %}
+                      </p>
+
+                      <p class="cene">
+                        <i class="fas fa-plane"></i>
+                            {% if dest.cena_avion %}
+                              {{dest.cena_avion}}
+                            {% else %}
+                              N/A
+                            {% endif %}
+                      </p>
+
+                      </div>
+
+                      {% for aranzman in aranzmani %}
+                      <div class="row2">
+                        <p class="poldol">Termin: {{aranzman.dat_pol}} - {{aranzman.dat_dol}} </p>
+                      </div>
+                      {% endfor %}
+                      <div class="row2">
+                        <input type="button" id="rezervisi" name="btn">
+                      </div>
+                    </div>
+                 </div>
               </div>
-
-              <div class="row2">
-              <p class="cene">
-                <i class="fas fa-bed"></i>
-                      {% if dest.cena_smestaj %}
-                        {{dest.cena_smestaj}}
-                      {% else %}
-                        /
-                      {% endif %}
-              </p>
-
-              <p class="cene">
-                <i class="fas fa-bus"></i>
-                    {% if dest.cena_bus %}
-                      {{dest.cena_bus}}
-                    {% else %}
-                      /
-                    {% endif %}
-              </p>
-
-              <p class="cene">
-                <i class="fas fa-plane"></i>
-                    {% if dest.cena_avion %}
-                      {{dest.cena_avion}}
-                    {% else %}
-                      /
-                    {% endif %}
-              </p>
-
-              </div>
-
-              {% for aranzman in aranzmani %}
-              <div class="row2">
-                <p class="poldol">Termin: {{aranzman.dat_pol}} - {{aranzman.dat_dol}} </p>
-              </div>
-              {% endfor %}
-              <div class="row2">
-                <input type="button" id="rezervisi" name="btn">
-              </div>
-            </div>
-         </div>
-      </div>
 
           </div>
 
