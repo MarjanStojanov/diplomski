@@ -1,9 +1,9 @@
 from mit import app
 from mit import db
-from flask import render_template
-
+from flask import render_template, make_response, abort
+import hashlib
 from models import *
-
+import flask
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
 def index():
@@ -50,6 +50,35 @@ def onama():
 @app.route('/kontakt', methods=['GET'])
 def kontakt():
 	return render_template('kontakt.html')
+
+@app.route('/token', methods=['GET','POST'])
+def token():
+    if flask.request.method == 'GET':
+        print('oyyyyyy')
+        return render_template('token.html')
+    elif flask.request.method == 'POST':
+        from sqlalchemy.sql.expression import func
+        exists = api_token.query.filter(api_token.email == flask.request.form['email']).first()
+        if exists:
+            return "USER ALREADY EXISTS"
+        else:
+            new_id = db.session.query(func.max(api_token.id)).scalar()
+            print(new_id)
+            if new_id is not None:
+                new_id += 1
+            else:
+                new_id  = 0
+            string = app.config['SECRET_KEY'] + flask.request.form['email']
+            token = hashlib.md5(string)
+
+            api_tok = api_token(id = new_id, token = token.hexdigest(), email=flask.request.form['email'])
+            db.session.add(api_tok)
+            db.session.commit()
+
+            return str(token.hexdigest())
+    else:
+         abort(403)
+
 
 
 @app.route('/search/<string:keyword>', methods=['GET'])

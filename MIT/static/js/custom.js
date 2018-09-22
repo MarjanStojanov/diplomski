@@ -168,17 +168,21 @@ function destinacija(){
           return
               if (this.style.backgroundColor == 'yellow')
               {
+                prevoz.replace(this.innerHTML,'')
                 this.style.setProperty('background-color','transparent')
                 this.style.setProperty('color','white')
               }
               else
               {
+                prevoz += this.innerHTML
                 this.style.setProperty('background-color','yellow')
                 this.style.setProperty('color','black')
               }
         })
     }
 
+var prevoz = ''
+var termin = ''
 
   ter = document.getElementsByClassName('poldol')
 
@@ -193,8 +197,16 @@ function destinacija(){
         }
         else
         {
+          for (i=0;i<ter.length;i++)
+          {
+            ter[i].style.setProperty('background-color','transparent')
+            ter[i].style.setProperty('color','white')
+
+          }
+          termin = this.innerHTML
           this.style.setProperty('background-color','yellow')
           this.style.setProperty('color','black')
+
         }
       })
     }
@@ -210,5 +222,22 @@ function pretraga(a)
 
  a.href = '/search/' + keyword.value.toLowerCase()
  a.click()
+  })
+}
+
+
+
+
+function token()
+{
+
+  $('#btnToken').click(function(){
+
+    $.post('/token',{ 'email': $('#email').val() }).done(function(data){
+
+      $('#email').val(data.toString())
+      $('#btnToken').attr('disabled', 'disabled')
+    })
+
   })
 }
