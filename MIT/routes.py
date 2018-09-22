@@ -86,7 +86,11 @@ def pretraga(keyword):
     drzava = Drzava.query.filter(Drzava.naziv.like(keyword)).first()
     if drzava:
         destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id ).all()
-    return render_template('pretraga.html', drzave = drzava, destinacije = destinacije)
+        return render_template('pretraga.html', drzave = drzava, destinacije = destinacije)
+    else:
+        destinacije2 = Destinacija.query.filter(Destinacija.naziv.like(keyword)).all()
+        if destinacije2:
+            return render_template('pretraga.html', destinacije = destinacije2)
 
 
 

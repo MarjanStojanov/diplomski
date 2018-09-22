@@ -166,7 +166,9 @@ img.last_min_img{
 
     }
 
-
+    #welcome, #podtekst{
+      display: none;
+    }
     #txt_email{
       margin-top:2vh;
       font-size: 0.7em;

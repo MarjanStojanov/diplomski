@@ -1,0 +1,86 @@
+.jumbotron{
+  height: auto;
+  background-image: url('../imgs/test2.jpg');
+}
+
+.glavni{
+	width: 90vw;
+  height: auto;
+	margin: 25px auto;
+	box-shadow: 0px 0px 200px  black;
+	background-color: rgba(240,240,240,0.2);
+  padding-bottom: 25px;
+  position: relative;
+}
+h2{
+  color: black;
+  margin-left: 30px;
+  width: 30%;
+}
+.slika{
+	width:30%;
+	height: 100%;
+	display: inline-block;
+	margin: 13px;
+  vertical-align: inherit;
+}
+
+.opis{
+	margin-top: 10px;
+	display: inline-block;
+  width: 50%;
+}
+
+.tekst{
+  overflow-y: hidden;
+  max-height: 15vh;
+	width: 100%;
+	text-align: center;
+}
+
+.clicks{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 10%;
+  display: inline-block;
+  box-shadow: 0px 0px 200px  black;
+  background-image: url('../imgs/find.jpg');
+}
+
+.omiljeno, .lajkovi{
+  text-align: center;
+  font-size: 25px;
+  margin-top: 15px;
+  transition: font-size 0.5s ease;
+}
+.omiljeno{
+  color: red;
+}
+.lajkovi{
+  color: blue;
+}
+.omiljeno i:hover, .lajkovi i:hover{
+  cursor: pointer;
+  font-size: 35px;
+}
+.omiljeno p, .lajkovi p{
+  color: white;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+a:active {
+    color: black;
+}
