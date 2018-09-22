@@ -37,31 +37,30 @@
 
 
 {% for des in dest %}
-      <div class="glavni">
+        <a href={{des.url}}>
+          <div class="glavni">
 
-        <img src={{url_for('static',filename="imgs/offers.jpg")}} class="slika">
-          <div class="opis">
-            <h3 class="tekst" id="naslov">
-            {{des.naziv}}
-          </h3>
-          <p class="tekst" id="tekst">
-            {{des.opis}}
-          </p>
-          </div>
-          <div class="navigate">
-            <button class="nav_btn left" class="levo">
-              <i class="fas fa-arrow-alt-circle-left"></i>
-            </button>
-            <a id="saznaj" href="">
-            <button id="klik" class="nav_btn_centar">
-              Saznaj vise
-            </button>
-            </a>
+            <img src={{url_for('static',filename="imgs/offers.jpg")}} class="slika">
 
-            <button class="nav_btn right" class="desno">
-            <i class="fas fa-arrow-alt-circle-right"></i>
-            </button>
+            <div class="opis">
+              <h3 class="tekst naslov">{{des.naziv}}</h3>
+              <p class="tekst" id="tekst">
+                {{des.opis}}
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+        </a>
+
+
+        <div class="clicks">
+          <div class="lajkovi">
+            <i class="fas fa-thumbs-up"></i><p>{{des.lajkovi}}</p>
           </div>
+          <div class="omiljeno">
+            <i class="fas fa-heart"></i><p>{{des.omiljeno}}</p>
+          </div>
+        </div>
+
 
       </div>
 {% endfor %}

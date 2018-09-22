@@ -47,6 +47,10 @@ class Destinacija(db.Model):
     last_min        = db.Column(db.Boolean, unique=False)
     id_drzava       = db.Column(db.Integer)
 
+    lajkovi         = db.Column(db.Integer)
+    omiljeno        = db.Column(db.Integer)
+    url             = db.Column(db.String(255))
+
 """
     will probably kick this out, Aranzman has everything needed
 

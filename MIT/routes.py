@@ -26,16 +26,17 @@ def kontinent(kont):
 
 @app.route('/drzava/<string:drz>', methods=['GET'])
 def drzava(drz):
-	drzava = Drzava.query.filter(Drzava.naziv==drz.title()).first()
-	if drzava:
-		destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id).all()
+    print(drz)
+    drzava = Drzava.query.filter(Drzava.naziv==drz.title()).first()
+    if drzava:
+        destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id).all()
         return render_template('drzava.html', drzava=drzava, dest = destinacije)
+    return render_template('404.html')
 
 
-@app.route('/destinacija/<string:dest>', methods=['GET'])
-def destinacija(dest):
-    dest = Destinacija.query.filter(Destinacija.naziv==dest).first()
-    print(dest)
+@app.route('/destinacija/<string:destin>', methods=['GET'])
+def destinacija(destin):
+    dest = Destinacija.query.filter(Destinacija.naziv==destin).first()
     if dest:
         aranzmani = Aranzman.query.filter(Aranzman.id_destinacija==dest.id).all()
         print(aranzmani)
@@ -55,7 +56,7 @@ def kontakt():
 def pretraga(keyword):
     drzava = Drzava.query.filter(Drzava.naziv.like(keyword)).first()
     if drzava:
-        destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id ).all()       
+        destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id ).all()
     return render_template('pretraga.html', drzave = drzava, destinacije = destinacije)
 
 

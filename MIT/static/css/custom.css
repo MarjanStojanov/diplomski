@@ -5,7 +5,7 @@
 }
 
 .jumbotron{
-
+    position: relative;
     background-image: url('../imgs/home.jpg');
     background-position: center bottom;
     background-size: cover;
@@ -19,7 +19,26 @@
   border-radius: 150px;
   transition: all 1s ease;
 }
+#welcome{
+  position: absolute;
+  font-size: 155px;
+  font-weight: 600;
+  color:#ff5e13;
+  opacity: 0.5;
+  left: 20%;
+  right: 20%;
 
+}
+#podtekst{
+  position: absolute;
+  font-size: 55px;
+  font-weight: 900;
+  color:white;
+  opacity: 0.6;
+  top:60%;
+  left: 35%;
+  right: 20%;
+}
 .container img:hover{
   transform: rotateY(180deg) scale(1.1);
   cursor: pointer;

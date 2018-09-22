@@ -74,54 +74,56 @@ function kontinent()
 
 function drzava()
 {
-
-
-  destinacije = document.getElementsByClassName('glavni')
-  levo = document.getElementsByClassName('levo')
-  desno = document.getElementsByClassName('desno')
+  var destinacije = document.getElementsByClassName('glavni')
+  var levo  = document.getElementsByClassName('levo')
+  var desno = document.getElementsByClassName('desno')
   destinacije[0].style.display='block'
-  b = 0
-  centar = document.getElementById('glavni')
+  var b = 0
 
     for(i=0;i<desno.length;i++)
     {
-  alert(desno[i])
-      desno[i].addEventListener('click',function()
-      {
-          centar.style.setProperty('opacity','0')
-
+        desno[i].addEventListener('click',function()
+        {
+                  destinacije[b].style.opacity='0'
+          if (b >= destinacije.length-1)
+            b = destinacije.length-2
             destinacije[b].style.display='none'
-            destinacije[b++].style.display='block'
-          setTimeout(function()
-          {
-            centar.style.setProperty('opacity','1')
+            b++
+            destinacije[b].style.display='block'
+          setTimeout(function(){
+            destinacije[b].style.opacity='1'
           },350)
-      });
-
+})
         levo[i].addEventListener('click',function()
         {
-            centar.style.setProperty('opacity','0')
 
-            destinacije[b].style.display='none'
-            destinacije[b--].style.display='block'
-            
-            setTimeout(function()
-            {
-              centar.style.setProperty('opacity','1')
-            },350)
+          destinacije[b].style.opacity='0'
+          if (b <= 0)
+            b = 1
+          destinacije[b].style.display='none'
+          b--
+          destinacije[b].style.display='block'
+
+          setTimeout(function(){
+            destinacije[b].style.opacity='1'
+          },350)
         });
     }
-  
 
-    button = document.getElementById('klik')
-    button.addEventListener('click', function(){ 
+        button = document.getElementsByClassName('klik')
+        for (i=0;i<button.length;i++)
+        {
 
-        btn = document.getElementById('saznaj')
-        naslov = document.getElementById('naslov').innerHTML
-        btn.href = '/destinacija/' + naslov.toLowerCase()
+              button[i].addEventListener('click', function(){
 
-        btn.click()
-    })
+              btn = document.getElementsByClassName('saznaj')[i]
+              naslov = document.getElementsByClassName('naslov')[i].innerHTML.replace(' ','')
+              btn.href = '/destinacija/' + naslov.toLowerCase()
+
+              btn[i].click()
+          })
+        }
+
 
 
 

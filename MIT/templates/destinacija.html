@@ -84,11 +84,12 @@
 
                       </div>
 
-                      {% for aranzman in aranzmani %}
-                      <div class="row2">
-                        <p class="poldol">Termin: {{aranzman.dat_pol}} - {{aranzman.dat_dol}} </p>
+                      <div class="row2 termini">
+
+                        {% for aranzman in aranzmani %}
+                          <p class="poldol">Termin: {{aranzman.dat_pol}} - {{aranzman.dat_dol}} </p>
+                        {% endfor %}
                       </div>
-                      {% endfor %}
                       <div class="row2">
                         <input type="button" id="rezervisi" name="btn">
                       </div>

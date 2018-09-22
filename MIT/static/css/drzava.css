@@ -6,89 +6,104 @@ body{
   width: 100vw;
 }
 
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+a:active {
+    color: black;
+}
+
 .jumbotron{
     background-image: url('../imgs/hand.jpg');
     background-size: cover;
     color: black;
+    height: auto;
 }
 
 h2,h4{
   margin: 2vw auto;
   font-family: Scratchy;
   text-align: center;
-
 }
+
 @font-face {
     font-family: Scratchy;
     src: url('../fonts/Widescratch Italic.ttf');
 }
 
-
-
 .glavni{
-	width: 27vw;
-	height: 50vh;
-	margin: auto;
+	width: 90vw;
+	height: 25vh;
+	margin: 25px auto;
 	box-shadow: 0px 0px 200px  black;
 	background-color: rgba(240,240,240,0.2);
-  transition: opacity 0.7s;
-  display: none;  
+  padding-bottom: 25px;
+  position: relative;
 }
-.slika{
-	width: 90%;
-	height: 50%;
-	display: block;
-	margin: auto;
-	padding-top: 35px;
-}
-.opis{
-	margin-top: 30px;
-}
-.tekst{
 
+.slika{
+	width:30%;
+	height: 100%;
+	display: inline-block;
+	margin: 13px;
+  vertical-align: inherit;
+}
+
+.opis{
+	margin-top: 10px;
+	display: inline-block;
+  width: 50%;
+}
+
+.tekst{
+  overflow-y: hidden;
+  max-height: 15vh;
 	width: 100%;
 	text-align: center;
 }
-.navigate{
-	width: 90%;
-	margin: auto;
+
+.clicks{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 10%;
+  display: inline-block;
+  box-shadow: 0px 0px 200px  black;
 }
 
-.nav_btn{
-	width: 30%;
-	display: inline-block;
-	margin:auto;
-	font-size: 50px;
-	background-color: transparent;
-	border: none;
-	transition: font-size 0.2s;
+.omiljeno, .lajkovi{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 15px;
+  transition: font-size 0.5s ease;
 }
-.nav_btn.left{
-	float:left;
-	text-align: left;
+.omiljeno{
+  color: red;
 }
-.nav_btn.left:hover{
-	font-size: 60px;
+.lajkovi{
+  color: blue;
 }
-.nav_btn.right{
-	float:right;
-	text-align: right;
+.omiljeno i:hover, .lajkovi i:hover{
+  cursor: pointer;
+  font-size: 35px;
 }
-.nav_btn.right:hover{
-	font-size: 60px;
+.omiljeno p, .lajkovi p{
+  color: black;
 }
-.nav_btn_centar{
-	width: 40%;
-	font-size: 25px;
-	display: inline-block;
-	vertical-align: middle;
-	border-radius: 25%;
-	border: none;
-}
-
 body > footer > div{
 	margin: 0px;
 }
+
 @media(max-width: 1000px)
 {
   .jumbotron h1{
@@ -101,7 +116,6 @@ body > footer > div{
       font-family: Scratchy;
       width: 100%;
       display: inline;
-
     }
 
 
@@ -126,10 +140,11 @@ body > footer > div{
       width: 80%;
     }
 
-   #glavni{
-   	width: 95%;
+   .glavni{
+   	width: 80vw;
    	height: auto;
    }
+
    .navigate{
    	padding-bottom:  20px;
    }
@@ -137,9 +152,6 @@ body > footer > div{
    .nav_btn_centar{
    	font-size:15px;
    }
-
-
-
 }
 
 button:active {
@@ -147,6 +159,7 @@ outline: none;
 border: none;
 opacity: 1!important;
 }
+
 button:focus {
 outline:0;
 }
