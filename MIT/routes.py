@@ -1,9 +1,16 @@
 from mit import app
 from mit import db
 from flask import render_template, make_response, abort
+from flask_mail import Message
 import hashlib
 from models import *
 import flask
+import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+
+
+
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
 def index():
@@ -93,6 +100,49 @@ def pretraga(keyword):
             return render_template('pretraga.html', destinacije = destinacije2)
 
 
+@app.route('/sendemail', methods=['POST'])
+def salji_mejl():
+    """
+    msg = Message(flask.request.form['subject'], sender=flask.request.form['email'], recipients=['marjanstojanov996@gmail.com'])
+    msg.body = flask.request.form['message'] #Customize based on user input
+    mail.send(msg)
+
+    fromaddr = app.config['MAIL_USERNAME']
+    toaddr = flask.request.form['email']
+    msg = MIMEMultipart()
+    msg['From'] = fromaddr
+    msg['To'] = toaddr
+    msg['Subject'] = flask.request.form['subject']
+
+    body = flask.request.form['message']
+    msg.attach(MIMEText(body, 'plain'))
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(fromaddr, app.config['MAIL_PASSWORD'])
+    text = msg.as_string()
+    server.sendmail(fromaddr, toaddr, text)
+    server.quit()
+    """
+
+    fromaddr = 'marjan.dipl@gmail.com' #app.config['MAIL_USERNAME']
+    print(fromaddr)
+    toaddr = flask.request.form['email']
+
+    msg = MIMEMultipart()
+    msg['From'] = fromaddr
+    msg['To'] = toaddr
+    msg['Subject'] = flask.request.form['subject']
+    body = flask.request.form['name']  + ' ' + flask.request.form['surname'] + ' je postavio pitanje:\n\n\n' + flask.request.form['message'] #flask.request.form['message']
+    msg.attach(MIMEText(body, 'plain'))
+
+    print('sending mail to ' + toaddr + ' on ' + msg['Subject'])
+
+    mailServer = smtplib.SMTP_SSL('smtp.googlemail.com', 465)
+    mailServer.login(fromaddr, 'sajsigal0ma')
+    mailServer.sendmail(fromaddr, toaddr, msg.as_string())
+    mailServer.quit()
+    return "success"
 
 
 @app.errorhandler(404)

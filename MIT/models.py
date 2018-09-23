@@ -7,8 +7,6 @@ class Kontinent(db.Model):
     __table_args__  = {'extend_existing': True}
     id              = db.Column(db.Integer, primary_key=True)
     naziv           = db.Column(db.String(64), index=True, unique=True)
-    #slika_URL       = db.Column(db.String(250), index=True, unique=True)
-
 
 
 
@@ -16,7 +14,7 @@ class Drzava(db.Model):
     __table_args__  = {'extend_existing': True}
     id              = db.Column(db.Integer, primary_key=True)
     naziv           = db.Column(db.String(64), index=True, unique=True)
-    slika_URL       = db.Column(db.String(250), index=True, unique=True)
+    slika_URL       = db.Column(db.String(250), index=True)
     opis            = db.Column(db.String(250), index=True, unique=True)
 
     id_kontinent    = db.Column(db.Integer, db.ForeignKey('kontinent.id'), primary_key=True)
@@ -34,6 +32,8 @@ class Aranzman(db.Model):
     dat_dol         = db.Column(db.String(64))
 
 
+
+
 class Destinacija(db.Model):
     __table_args__  = {'extend_existing': True}
     id              = db.Column(db.Integer, primary_key=True)
@@ -46,19 +46,13 @@ class Destinacija(db.Model):
     cena_bus        = db.Column(db.Integer, unique=False)
     last_min        = db.Column(db.Boolean, unique=False)
     id_drzava       = db.Column(db.Integer)
-
+    slika_URL       = db.Column(db.String(255))
     lajkovi         = db.Column(db.Integer)
     omiljeno        = db.Column(db.Integer)
     url             = db.Column(db.String(255))
 
-"""
-    will probably kick this out, Aranzman has everything needed
 
-class Termin(db.Model):
-    __table_args__  = {'extend_existing': True}
-    id              = db.Column(db.Integer, primary_key=True)
 
-"""
 class api_token(db.Model):
     id              = db.Column(db.Integer, primary_key=True)
     token           = db.Column(db.String(250), index=True, unique=True)

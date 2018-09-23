@@ -1,0 +1,18 @@
+.jumbotron{
+height:auto;
+background-image:url('../imgs/blu.jpg');
+background-size: cover;
+
+}
+
+#sendbtn{
+  border-color: #ff5e13;
+  color: #ff5313;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+#sendbtn:hover{
+  border-color: #fff;
+  color: #fff;
+  background-color: #ff5e13
+}

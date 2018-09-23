@@ -241,3 +241,33 @@ function token()
 
   })
 }
+
+
+
+
+
+
+
+function kontakt_email(){
+  $("#sendbtn").on("click", function(event) {
+   event.preventDefault();
+   $.ajax({
+     type: "POST",
+     url: "/sendemail",
+     data: {
+       name: $("#contact-form #name").val(),
+       lastname: $("#contact-form surname"),
+       email: $("#contact-form #email").val(),
+       subject: $("#contact-form #subject").val(),
+       message: $("#contact-form #message").val()
+     },
+     dataType: "json",
+     success: function(data) {
+
+     } ,
+
+     error: function() {
+     }
+   });
+ });
+}
