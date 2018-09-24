@@ -16,7 +16,8 @@ def validate_token(validate_func):
         token = api_token.query.filter(api_token.token==request.headers.get('MIT-API-TOKEN')).all()
         if not token: 
             return make_response(jsonify({'error':'authentication failed'})), 401
-        return validate_func(*args, **kwargs)
+        rtrn = validate_func(*args, **kwargs)
+        return rtrn
     return validation_service
 
 

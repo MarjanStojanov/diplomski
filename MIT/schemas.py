@@ -10,7 +10,7 @@ class DrzavaSchema(ma.Schema):
 
 class DestinacijaSchema(ma.Schema):
     class Meta:
-        fields = ('id', 'naziv', 'opis', 'zvezdice', 'cena_smestaj', 'cena_bus', 'cena_avion', 'last_min', 'id_drzava')
+        fields = ('id', 'naziv', 'hotel', 'opis', 'zvezdice', 'cena_smestaj', 'cena_bus', 'cena_avion', 'last_min','lajkovi', 'omiljeno', 'id_drzava')
 
 
 class ApiTokenSchema(ma.Schema):
@@ -19,4 +19,5 @@ class ApiTokenSchema(ma.Schema):
 
 class TerminSchema(ma.Schema):
 	class Meta:
-		fields = ('id', 'id_termin', 'dat_pol', 'dat_dol')
+		fields = ('id', 'id_termin', 'dat_pol', 'dat_dol'
+)
