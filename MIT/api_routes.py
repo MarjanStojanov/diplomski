@@ -11,7 +11,7 @@ def validate_token(validate_func):
     """
         dekorator za proveravanje tokena dodat na svim endpoint-ovima
     """
-    @wraps
+    @wraps(validate_func)
     def validation_service(*args, **kwargs):
         token = api_token.query.filter(api_token.token==request.headers.get('MIT-API-TOKEN')).all()
         if not token:

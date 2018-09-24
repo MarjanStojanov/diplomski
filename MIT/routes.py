@@ -1,13 +1,12 @@
 ﻿from mit import app
 from mit import db
 from flask import render_template, make_response, abort
-from flask_mail import Message
 import hashlib
 from models import *
 import flask
 import smtplib
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 
 
@@ -61,7 +60,6 @@ def kontakt():
 @app.route('/token', methods=['GET','POST'])
 def token():
     if flask.request.method == 'GET':
-        print('oyyyyyy')
         return render_template('token.html')
     elif flask.request.method == 'POST':
         from sqlalchemy.sql.expression import func
@@ -76,7 +74,7 @@ def token():
             else:
                 new_id  = 0
             string = app.config['SECRET_KEY'] + flask.request.form['email']
-            token = hashlib.md5(string)
+            token = hashlib.sha256(string.encode('utf-8'))
 
             api_tok = api_token(id = new_id, token = token.hexdigest(), email=flask.request.form['email'])
             db.session.add(api_tok)
@@ -107,7 +105,7 @@ def salji_mejl():
         i salje ga na određenu adresu
     """
 
-    fromaddr = flask.config['MAIL_USERNAME']
+    fromaddr = app.config['MAIL_USERNAME']
     print(fromaddr)
     toaddr = flask.request.form['email']
 

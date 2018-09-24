@@ -53,13 +53,17 @@
    <div class="container">
     <div class="row">
         <div class="col dest">
-          <h4>Karneval u Riu - Brazil</h4>
-          <img src={{url_for('static', filename='imgs/brazil karneval.jpg')}}/>
+          <a href={{url_for('destinacija', destin='rio')}}>
+            <h4>Karneval u Riu - Brazil</h4>
+            <img src={{url_for('static', filename='imgs/brazil karneval.jpg')}}/>
+          </a>
 
         </div>
         <div class="col dest">
+          <a href={{url_for('destinacija', destin='venecija')}}>
           <h4>Vikend - Venecija</h4>
           <img src={{url_for('static', filename='imgs/venecija.jpg')}}/>
+          </a>
         </div>
 
     </div>
@@ -67,14 +71,17 @@
 <div class="container">
     <div class="row">
       <div class="col dest">
-        <h4>Ibica - Spanija</h4>
-
-        <img src={{url_for('static', filename='imgs/ibica.jpg')}}/>
+          <a href={{url_for('destinacija', destin='ibica')}}>
+            <h4>Ibica - Spanija</h4>
+            <img src={{url_for('static', filename='imgs/ibica.jpg')}}/>
+          </a>
       </div>
       <div class="col dest">
-        <h4>Koloseum - Rim</h4>
-        <img src={{url_for('static', filename='imgs/rim.jpg')}}/>
-        </div>
+        <a href={{url_for('destinacija', destin='rim')}}>
+          <h4>Koloseum - Rim</h4>
+          <img src={{url_for('static', filename='imgs/drzave/rim.jpg')}}/>
+        </a>
+      </div>
     </div>
   </div>
 </div>

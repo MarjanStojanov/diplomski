@@ -63,14 +63,19 @@ h2,h4{
 	display: inline-block;
   width: 50%;
 }
-
 .tekst{
   overflow-y: hidden;
   max-height: 15vh;
+  font-size: 12px;
+  overflow-y:scroll;
 	width: 100%;
 	text-align: center;
 }
 
+.naslov{
+  font-size: 15px;
+  overflow-y: hidden;
+}
 .clicks{
   position: absolute;
   right: 10px;
@@ -83,7 +88,7 @@ h2,h4{
 
 .omiljeno, .lajkovi{
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   margin-top: 15px;
   transition: font-size 0.5s ease;
 }

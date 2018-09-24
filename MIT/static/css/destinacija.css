@@ -8,7 +8,6 @@ body{
 	height: auto;
 	color: black;
 }
-
 .main_div > *{
 	width: 80%;
 	margin:auto;
@@ -20,12 +19,14 @@ body{
 	margin: auto;
 	display: block;
 	height: 100%;
+	border-radius: 30px 30px 0px 0px;
 }
 
 .naslov{
 	text-align: center;
 	width: 49.5%;
 	padding:25px;
+	font-size: 25px;
 	position: absolute;
 	left: 5px;
 	top:5px;
@@ -36,7 +37,8 @@ body{
 	position: relative;
 	background-image:url('../imgs/find.jpg');
 	color: white;
-	height: 40vh;
+	height: 50vh;
+	border-radius: 0px 0px 30px 0px;
 }
 
 h2,h3{
@@ -44,12 +46,18 @@ h2,h3{
 	margin:auto;
 	padding: 5px;
 }
-
+h2{
+	font-size: 22px!important;
+}
+h3{
+	font-size: 15px!important;
+}
 .opis_ponude{
 	width: 80%;
 	margin:auto;
 	text-align: justify;
-	padding:25px;
+	padding:15px;
+	font-size: 12px;
 }
 
 .info{
@@ -58,7 +66,6 @@ h2,h3{
 	top:0px;
 	bottom:5px;
 	width: 49.5%;
-	border: 1px solid red;
 	height: 100%;
 }
 
@@ -72,7 +79,7 @@ h2,h3{
 	border-radius: 10px;
 }
 .cene{
-	font-size: 30px;
+	font-size: 20px;
 	padding: 10px;
 	margin-left: 7%;
 	display: inline;
@@ -80,10 +87,11 @@ h2,h3{
 	transition: all 0.3s ease;
 }
 .cene:hover{
-		background-color: yellow;
+		background-color: #ff5e13;
 		color: black;
 		cursor: pointer;
 }
+
 #rezervisi{
 	width:50%;
 	height: 100%;
@@ -91,14 +99,24 @@ h2,h3{
 	display: block;
 	margin-top: 10px;
 	border-radius: 20px;
+	font-size: 15px;
+	transition: 0.2s all ease;
+	    border-color: #ff5e13;
+	    color: #ff5313;
+	    background-color: transparent;
 }
-
+#rezervisi:hover{
+	border-color: #fff;
+	color: #fff;
+	background-color: #ff5e13;
+}
 .stars{
 	position: absolute;
 	right: 10%;
 	top:5px;
 	display: inline-block;
 	color: gold;
+	font-size: 20px;
 
 }
 .termini{
@@ -108,15 +126,18 @@ h2,h3{
 .poldol{
 	padding: 10px 0px;
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 14px;
 	text-align: center;
 	width: 100%;
 	margin-top: 1%;
 	border-radius: 10px;
 }
 .poldol:hover{
-		background-color: yellow;
+		background-color: #ff5e13;
 		color: black;
+}
+#ocena{
+	font-size: 18px;
 }
 @media(max-width:1000px)
 {

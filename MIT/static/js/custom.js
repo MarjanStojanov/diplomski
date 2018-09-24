@@ -166,7 +166,7 @@ function destinacija(){
       cene[i].addEventListener('click', function(){
         if(this.innerHTML.includes('N/A'))
           return
-              if (this.style.backgroundColor == 'yellow')
+              if (this.style.backgroundColor == '#ff5e13')
               {
                 prevoz.replace(this.innerHTML,'')
                 this.style.setProperty('background-color','transparent')
@@ -175,7 +175,7 @@ function destinacija(){
               else
               {
                 prevoz += this.innerHTML
-                this.style.setProperty('background-color','yellow')
+                this.style.setProperty('background-color','#ff5e13')
                 this.style.setProperty('color','black')
               }
         })
@@ -190,7 +190,7 @@ var termin = ''
     {
       ter[i].addEventListener('click', function()
       {
-        if (this.style.backgroundColor == 'yellow')
+        if (this.style.backgroundColor == '#ff5e13')
         {
           this.style.setProperty('background-color','transparent')
           this.style.setProperty('color','white')
@@ -204,7 +204,7 @@ var termin = ''
 
           }
           termin = this.innerHTML
-          this.style.setProperty('background-color','yellow')
+          this.style.setProperty('background-color','#ff5e13')
           this.style.setProperty('color','black')
 
         }
@@ -232,11 +232,18 @@ function token()
 {
 
   $('#btnToken').click(function(){
-
+    if (!(document.getElementById('email').value.includes('@')))
+    {
+      alert('email mora sadrzati @ i . posle @')
+      return
+    }
     $.post('/token',{ 'email': $('#email').val() }).done(function(data){
 
       $('#email').val(data.toString())
       $('#btnToken').attr('disabled', 'disabled')
+      $('#btnToken').html('Maksimalno jedan token po email-u')
+      $('#btnToken').css("background-color","red");
+      $('h2').html('Token generisan!')
     })
 
   })

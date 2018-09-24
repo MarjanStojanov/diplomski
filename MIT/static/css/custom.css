@@ -11,9 +11,11 @@
     background-size: cover;
     padding-right: 0px;
     width: auto;
+    height: 100vh;
 }
 .container img{
   height: 15vw;
+  width: 80%;
   margin: auto;
   display: block;
   border-radius: 150px;
@@ -21,22 +23,22 @@
 }
 #welcome{
   position: absolute;
-  font-size: 155px;
+  font-size: 120px;
   font-weight: 600;
   color:#ff5e13;
   opacity: 0.5;
-  left: 20%;
-  right: 20%;
+  left: 10%;
+  right: 10%;
 
 }
 #podtekst{
   position: absolute;
-  font-size: 55px;
+  font-size: 45px;
   font-weight: 900;
   color:white;
   opacity: 0.6;
-  top:60%;
-  left: 35%;
+  top:70%;
+  left: 25%;
   right: 20%;
 }
 .container img:hover{
