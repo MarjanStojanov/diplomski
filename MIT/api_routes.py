@@ -11,13 +11,13 @@ def validate_token(validate_func):
     """
         dekorator za proveravanje tokena dodat na svim endpoint-ovima
     """
-    @wraps(validate_func)
+    @wraps
     def validation_service(*args, **kwargs):
         token = api_token.query.filter(api_token.token==request.headers.get('MIT-API-TOKEN')).all()
-        if not token: 
+        if not token:
             return make_response(jsonify({'error':'authentication failed'})), 401
-        rtrn = validate_func(*args, **kwargs)
-        return rtrn
+
+        return validate_func(*args, **kwargs)
     return validation_service
 
 
@@ -137,7 +137,7 @@ def vrati_drzavu(ID):
                 elif arg == 'opis':
                     data.opis = flask.request.get_json()[arg]
                 else:
-                    pass    
+                    pass
             db.session.commit()
             result = drzava_schema.dump(data)
             return make_response(jsonify(result)), 200
@@ -234,7 +234,7 @@ def vrati_destinacije():
         for req in ['naziv','drzava_id','cena_bus','cena_avion','cena_smestaj','last_min']:
             if req not in payload:
                 return make_response(jsonify({'error':'Required parameters missing'})),400
-            
+
         new_id = db.session.query(func.max(Destinacija.id)).scalar()
         print(type(new_id))
         if new_id == None:
@@ -323,7 +323,7 @@ def vrati_destinaciju(ID):
 @app.route('/api/admin/tokens', methods=['GET','PUT','POST', 'DELETE'])
 def token_manager():
     """
-        endpoint za upravljanje tokenima za autentifikaciju 
+        endpoint za upravljanje tokenima za autentifikaciju
         samo admini mogu da ga koriste, ako imaju secret_admin_token
         dozvoljava izmene, dodavanje i brisanje tokena
     """
