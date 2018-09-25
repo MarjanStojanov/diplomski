@@ -59,8 +59,9 @@ h2,h4{
 }
 
 .opis{
+  position: absolute;
+  display: inline-block;
 	margin-top: 10px;
-	display: inline-block;
   width: 50%;
 }
 .tekst{
@@ -147,9 +148,32 @@ body > footer > div{
 
    .glavni{
    	width: 80vw;
-   	height: auto;
+   	height: 50vh;
+    display: block;
+   }
+   .slika{
+    top:20px;
+    margin: 20px;
+    height: 95%;
+    display: block;
+    position: relative;
+
+   }
+   .opis{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 65%;
+    height: 55%;
    }
 
+   .clicks{
+    width: 40%;
+    margin:auto;
+    top: initial;
+  right: 10px;
+  bottom: 10px;
+   }
    .navigate{
    	padding-bottom:  20px;
    }

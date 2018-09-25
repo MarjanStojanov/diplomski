@@ -1,6 +1,8 @@
 .jumbotron{
   height: auto;
   background-image: url('../imgs/test2.jpg');
+  background-size: cover;
+  background-origin: fixed;
 }
 
 .glavni{

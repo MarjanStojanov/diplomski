@@ -1,13 +1,12 @@
 ﻿from mit import app
 from mit import db
-from flask import render_template, make_response, abort
+from flask import render_template, make_response, abort, jsonify
 import hashlib
 from models import *
 import flask
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
 
 
 @app.route('/', methods=['GET'])
@@ -96,6 +95,8 @@ def pretraga(keyword):
         destinacije2 = Destinacija.query.filter(Destinacija.naziv.like(keyword)).all()
         if destinacije2:
             return render_template('pretraga.html', destinacije = destinacije2)
+        else:
+            return render_template('pretraga.html', destinacije = None, drzave = None)
 
 
 @app.route('/sendemail', methods=['POST'])
@@ -127,4 +128,7 @@ def salji_mejl():
 
 @app.errorhandler(404)
 def vrati_404(error):
-    return render_template('404.html'), 404
+    if 'MIT-API-TOKEN' in flask.request.headers:
+        return jsonify({'error':'endpoint not found'}),404
+    else:    
+        return render_template('404.html'), 404

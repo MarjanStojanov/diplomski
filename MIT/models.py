@@ -26,11 +26,12 @@ class Drzava(db.Model):
 class Aranzman(db.Model):
     __table_args__  = {'extend_existing': True}
     id              = db.Column(db.Integer, primary_key=True)
-    id_destinacija  = db.Column(db.Integer, db.ForeignKey('destinacija.id'), primary_key=True)
-    destinacija     = db.relationship('Destinacija', backref='aranzman', lazy=True)
+    id_destinacija  = db.Column(db.Integer, db.ForeignKey('destinacija.id', ondelete='CASCADE'), primary_key=True)
+    destinacija     = db.relationship('Destinacija', backref='destinacija', lazy=True)
     dat_pol         = db.Column(db.String(64))
     dat_dol         = db.Column(db.String(64))
 
+    aranzman = db.relationship('Destinacija', backref=db.backref('aranzman', passive_deletes=True))
 
 
 
@@ -51,7 +52,7 @@ class Destinacija(db.Model):
     omiljeno        = db.Column(db.Integer)
     url             = db.Column(db.String(255))
 
-
+    aranzmani = db.relationship('Aranzman', passive_deletes=True)
 
 class api_token(db.Model):
     id              = db.Column(db.Integer, primary_key=True)

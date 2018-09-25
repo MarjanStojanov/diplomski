@@ -25,15 +25,18 @@
       {% if drzava %}
       <h2>Ah ta divna {{drzava.naziv}} ...</h2>
       {%else%}
-      <h2 >Rezultati pretrage:</h2>
+      <h3 >Rezultati pretrage:</h3>
       {% endif %}
 
+      {% if drzava == null and destinacija == null %}
+      <h2>Nema rezultata za uneti tekst</h2>
+      {%else%}
       <div class="listing">
         {% for dest in destinacije %}
                 <a href={{dest.url}}>
                   <div class="glavni">
 
-                    <img src={{url_for('static',filename=dest.slika_URL)}} class="slika">
+                    <img src={{ dest.slika_URL }} class="slika">
 
                     <div class="opis">
                       <h3 class="tekst naslov">{{dest.naziv}} - {{dest.hotel}}</h3>
@@ -55,11 +58,11 @@
                 </div>
 
 
+          {% endfor %}
               </div>
-        {% endfor %}
-      </div>
+      {%endif%}
+    </div>
 
-</div>
 
 
 <!-- O NAMA -->

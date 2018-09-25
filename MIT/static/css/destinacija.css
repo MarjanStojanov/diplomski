@@ -11,7 +11,7 @@ body{
 .main_div > *{
 	width: 80%;
 	margin:auto;
-	height: 50vh;
+	height: 40vh;
 }
 
 #slika{
@@ -37,7 +37,7 @@ body{
 	position: relative;
 	background-image:url('../imgs/find.jpg');
 	color: white;
-	height: 50vh;
+	height: 40vh;
 	border-radius: 0px 0px 30px 0px;
 }
 
@@ -54,6 +54,8 @@ h3{
 }
 .opis_ponude{
 	width: 80%;
+	height: 25vh;
+	overflow-y:scroll; 
 	margin:auto;
 	text-align: justify;
 	padding:15px;

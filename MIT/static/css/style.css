@@ -27,7 +27,9 @@ body{
     opacity: 1;
   /*  position: fixed;*/
 }
-
+#searchbar{
+  width: 350px;
+}
 .navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand,
 .navbar-light .navbar-nav .active>.nav-link {
     color: white;

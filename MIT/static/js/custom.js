@@ -216,13 +216,8 @@ var termin = ''
 function pretraga(a)
 {
   keyword = document.getElementById('searchbar')
-  a.addEventListener('click',function(e){
-
-  alert(keyword.value.toLowerCase())
-
- a.href = '/search/' + keyword.value.toLowerCase()
- a.click()
-  })
+  a.href = '/search/' + keyword.value.toLowerCase()
+  a.click()
 }
 
 

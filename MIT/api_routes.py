@@ -280,8 +280,6 @@ def vrati_destinaciju(ID):
         if data:
             result = destinacija_schema.dump(data)
             return jsonify(result)
-        else:
-            return render_template('404.html')
 
     elif flask.request.method == 'PUT':
         data = Destinacija.query.filter(Destinacija.id == ID).first()
@@ -311,7 +309,10 @@ def vrati_destinaciju(ID):
     elif flask.request.method == 'DELETE':
         ima = Destinacija.query.filter(Destinacija.id==ID).first()
         if ima:
-            Destinacija.query.filter(Destinacija.id==ID).delete()
+            aranzmani = Aranzman.query.filter(Aranzman.id == ima.id).all()
+            if len(aranzmani) > 0:
+                return make_response(jsonify({'error':'could not delete Destinacija that has Aranzmani'})), 403
+            db.session.delete(ima)    
             db.session.commit()
             return make_response(jsonify({'status':'successfully deleted'})), 200
         else:
@@ -400,7 +401,3 @@ def termini():
             termin_schema = TerminSchema(many=True)
             result = termin_schema.dump(data)
             return make_response(jsonify(result)),200
-
-@app.errorhandler(404)
-def vrati_404(error):
-            return make_response(jsonify({'error':'non-existing endpoint'})), 404

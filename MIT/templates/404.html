@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" style="height:100%">
+  <head>
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style type="text/css">
+      body{
+        background-image: url({{url_for('static', filename='imgs/404.jpg')}});
+        background-size:cover;
+      }
+      #ups,#dodatno{
+        color:red;
+
+      }
+      #ups{
+        font-size: 100px;
+        font-weight: 900;
+      }
+      #dodatno{
+        font-size: 260px;
+        font-weight: 600;
+        margin: 30px;
+      }
+
+      #btn{
+        font-size: 30px;
+        margin-left: 120px; 
+        padding: 20px;
+        border: 2px solid red;
+        background-color: transparent;
+        border-radius: 30px;
+        color: red;
+        transition: 0.2s all;
+      }
+      #btn:hover{
+        background-color: black;
+
+      }
+    </style>
+
+  </head>
+<body>
+  <div>
+    <p id="ups">Ups, pa ovde nema niceg?</p>
+    <p id="dodatno">404</p>
+    <a href={{ url_for('index') }}>
+      <button id="btn">
+        Vrati me nazad
+      </button>
+    </a>
+  </div>
+  
+  </body>
+</html>
