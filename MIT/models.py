@@ -15,7 +15,7 @@ class Drzava(db.Model):
     id              = db.Column(db.Integer, primary_key=True)
     naziv           = db.Column(db.String(64), index=True, unique=True)
     slika_URL       = db.Column(db.String(250), index=True)
-    opis            = db.Column(db.String(250), index=True, unique=True)
+    opis            = db.Column(db.String(250), index=True)
 
     id_kontinent    = db.Column(db.Integer, db.ForeignKey('kontinent.id'), primary_key=True)
     kontinent       = db.relationship('Kontinent', backref='drzava', lazy=True)

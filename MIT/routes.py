@@ -105,16 +105,16 @@ def salji_mejl():
         Ova funkcija povlači podatke iz AJAX zahteva, formatira email
         i salje ga na određenu adresu
     """
+    print(flask.request.data)
+    print(flask.request.get_json())
 
     fromaddr = app.config['MAIL_USERNAME']
-    print(fromaddr)
-    toaddr = flask.request.form['email']
-
+    toaddr = flask.request.get_json()['email']
     msg = MIMEMultipart()
     msg['From'] = fromaddr
     msg['To'] = toaddr
-    msg['Subject'] = flask.request.form['subject']
-    body = flask.request.form['name']  + ' ' + flask.request.form['surname'] + ' je postavio pitanje:\n\n\n' + flask.request.form['message'] #flask.request.form['message']
+    msg['Subject'] = flask.request.get_json()['subject']
+    body = flask.request.get_json()['name']  + ' ' + flask.request.get_json()['surname'] + ' je postavio pitanje:\n\n\n' + flask.request.get_json()['message'] #flask.request.form['message']
     msg.attach(MIMEText(body, 'plain'))
 
     print('sending mail to ' + toaddr + ' on ' + msg['Subject'])
@@ -130,5 +130,5 @@ def salji_mejl():
 def vrati_404(error):
     if 'MIT-API-TOKEN' in flask.request.headers:
         return jsonify({'error':'endpoint not found'}),404
-    else:    
+    else:
         return render_template('404.html'), 404

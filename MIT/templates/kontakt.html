@@ -12,9 +12,49 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }} type="text/css"/>
     <link rel="stylesheet" href={{ url_for('static', filename='css/kontakt.css') }} type="text/css"/>
-  </head>
-<body onload="token()">
 
+
+    <style media="screen">
+      .successmail{
+        background-color: rgba(0,0,0,130);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 99;
+        display: none;
+      }
+      .confirm{
+        position: absolute;
+        top:40%;
+        left: 33%;
+        font-size: 50px;
+        width: 30%;
+        margin: auto;
+        color: #ff5e13;
+      }
+      .confirm > button{
+        width: 90%;
+        font-size: 30px;
+        border-color: #ff5e13;
+        color: #ff5313;
+        background-color: transparent;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+      }
+      .confirm > button:hover{
+        border-color: #fff;
+        color: #fff;
+        background-color: #ff5e13;
+      }
+    </style>
+  </head>
+<body onload="kontakt_email()">
+  <div class="successmail">
+    <div class="confirm">
+      <p>Mejl poslat!</p>
+      <button type="button" name="button">Zatvori</button>
+    </div>
+  </div>
     <!-- SPLASH SCREEN + NAVBAR -->
 
     <div class="jumbotron" >
@@ -28,7 +68,7 @@
 
 
 
-      <form id="contact-form" method="POST" action="/sendemail" role="form">
+      <form id="contact-form" role="form">
 
       <div class="messages"></div>
 

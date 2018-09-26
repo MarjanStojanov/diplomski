@@ -251,25 +251,23 @@ function token()
 
 
 function kontakt_email(){
-  $("#sendbtn").on("click", function(event) {
-   event.preventDefault();
+  $("#contact-form").on('submit', function(e) {
+   e.preventDefault();
+
+
    $.ajax({
-     type: "POST",
-     url: "/sendemail",
-     data: {
-       name: $("#contact-form #name").val(),
-       lastname: $("#contact-form surname"),
-       email: $("#contact-form #email").val(),
-       subject: $("#contact-form #subject").val(),
-       message: $("#contact-form #message").val()
-     },
-     dataType: "json",
-     success: function(data) {
-
-     } ,
-
-     error: function() {
+     type: 'POST',
+     url: '/sendemail',
+     contentType:'application/json',
+     data: JSON.stringify({'name':$('#form_email').val(), 'subject':$('#form_need').val(),'surname':$('#form_lastname').val(),'email':$('#form_email').val(),'message':$('#form_message').val()}),
+     success: function() {
+       alert('ayy')
+        $('.successmail').css('display','block')
      }
    });
  });
+
+ $(".confirm").on('click',function(){
+   $('.successmail').css('display','none')
+ })
 }
