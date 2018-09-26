@@ -38,10 +38,10 @@ class Aranzman(db.Model):
 class Destinacija(db.Model):
     __table_args__  = {'extend_existing': True}
     id              = db.Column(db.Integer, primary_key=True)
-    naziv           = db.Column(db.String(64), index=True, unique=True)
+    naziv           = db.Column(db.String(64), index=True)
     hotel           = db.Column(db.String(64))
-    opis            = db.Column(db.String(600), index=True, unique=True)
-    zvezdice        = db.Column(db.Integer, index=True, unique=False)
+    opis            = db.Column(db.String(600), index=True)
+    zvezdice        = db.Column(db.Integer, index=True)
     cena_smestaj    = db.Column(db.Integer, unique=False)
     cena_avion      = db.Column(db.Integer, unique=False)
     cena_bus        = db.Column(db.Integer, unique=False)

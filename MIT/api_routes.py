@@ -33,10 +33,9 @@ def vrati_kontinente():
     if flask.request.method == 'GET':
         kontinent_schema = KontinentSchema(many=True)
         data = Kontinent.query.all()
-        result = kontinent_schema.dump(data)
-        return jsonify(result)
-
-
+        if data:
+            result = kontinent_schema.dump(data)
+            return jsonify(result)
     else:
         err = flask.request.method + 'request not allowed'
         return make_response(jsonify({'error': err})), 405
@@ -50,12 +49,14 @@ def vrati_drzave_kontinenta(ID):
     if flask.request.method == 'GET':
         drzava_schema = DrzavaSchema(many=True)
         data = Drzava.query.filter(Drzava.id_kontinent==ID).all()
-        result = drzava_schema.dump(data)
-        return jsonify(result)
+        if data:
+            result = drzava_schema.dump(data)
+            return jsonify(result)
+        else:
+            return make_response(jsonify({'error': 'Drzava with that id doesn\'t exist'})), 400
 
-
-    elif flas.request.method == 'POST':
-        err = flask.request.method + 'request not allowed'
+    elif flask.request.method == 'POST':
+        err = flask.request.method + ' request not allowed'
         return make_response(jsonify({'error': err})), 405
 
 
@@ -71,9 +72,11 @@ def vrati_drzave():
     if flask.request.method == 'GET':
         drzava_schema = DrzavaSchema(many=True)
         data = Drzava.query.all()
-        result = drzava_schema.dump(data)
-        return jsonify(result)
-
+        if data:
+            result = drzava_schema.dump(data)
+            return jsonify(result)
+        else:
+            return make_response(jsonify({'error': 'no Drzava found'})), 400
 
     elif flask.request.method == 'POST':
         drzava_schema = DrzavaSchema()
@@ -99,7 +102,7 @@ def vrati_drzave():
                     result = drzava_schema.dump(drzava)
                     return make_response(jsonify(result)), 200
                 else:
-                    return make_response(jsonify({'error': 'Drzava sa tim nazivom vec postoji'})), 400
+                    return make_response(jsonify({'error': 'Drzava with that naziv already exists'})), 400
 
     else:
         err = flask.request.method + 'request not allowed'
@@ -231,7 +234,7 @@ def vrati_destinacije():
     elif flask.request.method == 'POST':
         destinacija_schema = DestinacijaSchema()
         payload = flask.request.get_json()
-        for req in ['naziv','drzava_id','cena_bus','cena_avion','cena_smestaj','last_min']:
+        for req in ['naziv','id_drzava','cena_bus','cena_avion','cena_smestaj','last_min']:
             if req not in payload:
                 return make_response(jsonify({'error':'Required parameters missing'})),400
 
@@ -245,7 +248,7 @@ def vrati_destinacije():
         cena_bus     = payload['cena_bus']
         cena_smestaj = payload['cena_smestaj']
         last_min     = payload['last_min']
-        drzava_id    = payload['drzava_id']
+        drzava_id    = payload['id_drzava']
 
         if 'opis' in payload:
             opis  = payload['opis']
@@ -256,7 +259,7 @@ def vrati_destinacije():
         else:
             zvezdice = None
 
-        dest = Destinacija(id=new_id, id_drzava=drzava_id, naziv=naziv, opis=opis, zvezdice=zvezdice, cena_avion=cena_avion, cena_smestaj=cena_smestaj, cena_bus=cena_bus, last_min=last_min)
+        dest = Destinacija(id=new_id, id_drzava=drzava_id, naziv=naziv, opis=opis, zvezdice=zvezdice, cena_avion=cena_avion, cena_smestaj=cena_smestaj, cena_bus=cena_bus, last_min=last_min, lajkovi=0, omiljeno=0)
         print(dest)
         db.session.add(dest)
         db.session.commit()
@@ -280,6 +283,9 @@ def vrati_destinaciju(ID):
         if data:
             result = destinacija_schema.dump(data)
             return jsonify(result)
+        else:
+            return make_response(jsonify({'error':'non-existing Destinacija'})),404
+
 
     elif flask.request.method == 'PUT':
         data = Destinacija.query.filter(Destinacija.id == ID).first()
@@ -287,6 +293,8 @@ def vrati_destinaciju(ID):
             for arg in flask.request.get_json():
                 if arg == 'naziv':
                     data.naziv = flask.request.get_json()[arg]
+                elif arg == 'hotel':
+                    data.hotel = flask.request.get_json()[arg]
                 elif arg == 'cena_bus':
                     data.cena_bus = flask.request.get_json()[arg]
                 elif arg == 'cena_bus':
@@ -297,22 +305,29 @@ def vrati_destinaciju(ID):
                     data.cena_smestaj = flask.request.get_json()[arg]
                 elif arg == 'zvezdice':
                     data.zvezdice = flask.request.get_json()[arg]
+                elif arg == 'lajkovi':
+                    data.lajkovi = flask.request.get_json()[arg]
+                elif arg == 'omiljeno':
+                    data.omiljeno = flask.request.get_json()[arg]
+
                 else:
                     pass
             db.session.commit()
             result = destinacija_schema.dump(data)
             return make_response(jsonify(result)), 200
         else:
-            return make_response(jsonify({'error': 'destinacija not found'})), 404
+            return make_response(jsonify({'error':'non-existing Destinacija'})),404
 
 
     elif flask.request.method == 'DELETE':
         ima = Destinacija.query.filter(Destinacija.id==ID).first()
+        print('ojsa')
         if ima:
             aranzmani = Aranzman.query.filter(Aranzman.id == ima.id).all()
-            if len(aranzmani) > 0:
-                return make_response(jsonify({'error':'could not delete Destinacija that has Aranzmani'})), 403
-            db.session.delete(ima)    
+            print(len(aranzmani))
+            Aranzman.query.filter(Aranzman.id_destinacija == ima.id).delete() 
+            db.session.commit()
+            Destinacija.query.filter(Destinacija.id==ID).delete()
             db.session.commit()
             return make_response(jsonify({'status':'successfully deleted'})), 200
         else:
@@ -392,12 +407,12 @@ def token_manager():
 
 
 
-@app.route('/api/termini', methods = ['GET','POST'])
+@app.route('/api/aranzmani', methods = ['GET','POST'])
+@validate_token
 def termini():
-
     if flask.request.method == 'GET':
-        data = Termin.query.all()
+        data = Aranzman.query.all()
         if data:
-            termin_schema = TerminSchema(many=True)
-            result = termin_schema.dump(data)
+            aranzman_schema = AranzmanSchema(many=True)
+            result = aranzman_schema.dump(data)
             return make_response(jsonify(result)),200

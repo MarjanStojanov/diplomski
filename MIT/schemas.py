@@ -17,7 +17,6 @@ class ApiTokenSchema(ma.Schema):
     class Meta:
         fields = ('id', 'token', 'email')
 
-class TerminSchema(ma.Schema):
+class AranzmanSchema(ma.Schema):
 	class Meta:
-		fields = ('id', 'id_termin', 'dat_pol', 'dat_dol'
-)
+		fields = ('id', 'id_destinacija', 'dat_pol', 'dat_dol')
