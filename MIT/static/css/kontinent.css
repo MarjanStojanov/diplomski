@@ -26,8 +26,8 @@ h2,h4{
 
 .polaroid {
   position: absolute;
-  width: 17vw;
-  height: 40vh;
+  width: 14vw;
+  height: 35vh;
   background-image: url('../imgs/papir.jpg');
   background-size: cover;
   transition: width 0.5s, height 0.5s, box-shadow 0.4s;
@@ -36,8 +36,8 @@ h2,h4{
 
 .polaroid:hover {
   z-index: 999;
-  width: 20vw;
-  height: 45vh;
+  width: 15vw;
+  height: 40vh;
   box-shadow: 10px 10px 80px 20px black;
   cursor: pointer;
 

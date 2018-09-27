@@ -71,9 +71,9 @@
 <div class="container">
     <div class="row">
       <div class="col dest">
-          <a href={{url_for('destinacija', destin='ibica')}}>
-            <h4>Ibica - Spanija</h4>
-            <img src={{url_for('static', filename='imgs/ibica.jpg')}}/>
+          <a href={{url_for('destinacija', destin='bali')}}>
+            <h4>Bali - Indonezija</h4>
+            <img src={{url_for('static', filename='imgs/destinacije/bali.jpg')}}/>
           </a>
       </div>
       <div class="col dest">
@@ -106,10 +106,12 @@
 		</p>
         <div class="last_min_img_info">
             <img src={{url_for('static', filename='imgs/drzave/egipat.jpg')}} class="last_min_img"/>
+            <a href={{url_for('destinacija', destin='kairo')}}>
 
-            <button class="last_min_info_btn btn-outline-success" value="Saznaj vise">
-              Saznaj vise
-            </button>
+              <button class="last_min_info_btn btn-outline-success" value="Saznaj vise">
+                Saznaj vise
+              </button>
+            </a>
         </div>
 
         </div>
@@ -120,10 +122,12 @@
 		</p>
       <div class="last_min_img_info">
             <img src={{url_for('static', filename='imgs/drzave/bali.jpg')}} class="last_min_img"/>
+            <a href={{url_for('destinacija', destin='bali')}}>
+              <button class=" btn-outline-success last_min_info_btn" value="Saznaj vise">
+                Saznaj vise
+              </button>
+            </a>
 
-            <button class=" btn-outline-success last_min_info_btn" value="Saznaj vise">
-              Saznaj vise
-            </button>
         </div>
 
         </div>

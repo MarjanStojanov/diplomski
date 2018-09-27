@@ -32,7 +32,7 @@ def kontinent(kont):
 @app.route('/drzava/<string:drz>', methods=['GET'])
 def drzava(drz):
     print(drz)
-    drzava = Drzava.query.filter(Drzava.naziv==drz.title()).first()
+    drzava = Drzava.query.filter(Drzava.naziv==drz).first()
     if drzava:
         destinacije = Destinacija.query.filter(Destinacija.id_drzava == drzava.id).all()
         return render_template('drzava.html', drzava=drzava, dest = destinacije)

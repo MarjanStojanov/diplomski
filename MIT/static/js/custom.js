@@ -37,8 +37,8 @@ function kontinent()
     for (i=0;i<polaroidi.length;i++)
     {
 
-      top1 = '' + (Math.floor(Math.random() * 400 + 50)) + "px"
-      left = '' + (Math.floor(Math.random() * 1400)) + "px"
+      top1 = '' + (Math.floor(Math.random() * 200 + 50)) + "px"
+      left = '' + (Math.floor(Math.random() * 800)) + "px"
       polaroidi[i].style.setProperty('left', left)
       polaroidi[i].style.setProperty('top', top1)
       polaroidi[i].style.setProperty('transform','rotate('+ Math.floor(Math.random() * 160 - 80)  +'deg)')
@@ -161,12 +161,15 @@ function poseti(a)
 function destinacija(){
   cene = document.getElementsByClassName('cene')
 
+  var prevoz = ''
+  var termin = ''
+
   for (i=0;i<cene.length;i++)
     {
       cene[i].addEventListener('click', function(){
         if(this.innerHTML.includes('N/A'))
           return
-              if (this.style.backgroundColor == '#ff5e13')
+              if (this.style.backgroundColor === '#ff5e13')
               {
                 prevoz.replace(this.innerHTML,'')
                 this.style.setProperty('background-color','transparent')
@@ -181,8 +184,6 @@ function destinacija(){
         })
     }
 
-var prevoz = ''
-var termin = ''
 
   ter = document.getElementsByClassName('poldol')
 
@@ -210,6 +211,44 @@ var termin = ''
         }
       })
     }
+
+    btnrez = document.getElementById('rezervisi')
+    btnrez.addEventListener('click',function(){
+      termini = document.getElementsByClassName('poldol')
+      var ima_ter = false
+      for (i=0;i<termini.length;i++)
+        {
+          if (termini[i].style.backgroundColor == '#ff5e13')
+          {
+            alert('asd')
+            ima_ter = true
+
+          }
+        }
+
+        cene = document.getElementsByClassName('cene')
+        var ima_cen = false
+        for (i=0;i<cene.length;i++)
+          {
+            if (cene[i].style.backgroundColor == '#ff5e13')
+            {
+              ima_cen = true
+
+            }
+          }
+    if (termin=='' || prevoz=='')
+      {
+        document.getElementById('msg').innerHTML="MORATE ODABRATI TERMIN I PREVOZ"
+        document.getElementsByClassName('success')[0].style.setProperty('display','block')
+      }
+    else
+      document.getElementsByClassName('success')[0].style.setProperty('display','block')
+
+    })
+    btnzat = document.getElementById('btnzat')
+    btnzat.addEventListener('click',function(){
+      document.getElementsByClassName('success')[0].style.setProperty('display','none')
+    })
 }
 
 

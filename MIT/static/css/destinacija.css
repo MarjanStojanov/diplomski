@@ -8,12 +8,47 @@ body{
 	height: auto;
 	color: black;
 }
-.main_div > *{
-	width: 80%;
-	margin:auto;
-	height: 40vh;
+.main_div{
+	position: relative;
 }
 
+.main_div > *{
+	width: 60%;
+	margin:auto;
+	height: 40vh;
+
+}
+.success{
+	font-size: 25px;
+	text-align: center;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.95);
+	position: absolute;
+	border: 5px solid #ff5e13;
+	width: 35%;
+	height:auto;
+	left:35%;
+	right:35%;
+	top:30%;
+	bottom: 40%;
+	display: none;
+}
+.success > *{
+	width: 90%;
+
+}
+.success input{
+	border-color: #ff5e13;
+	color: #ff5313;
+	background-color: transparent;
+	transition: all 0.3s ease;
+	border-radius: 15px;
+}
+.success input:hover{
+	border-color: #fff;
+	color: #fff;
+	background-color: #ff5e13;
+}
 #slika{
 	width:100%;
 	margin: auto;
@@ -55,7 +90,7 @@ h3{
 .opis_ponude{
 	width: 80%;
 	height: 25vh;
-	overflow-y:scroll; 
+	overflow-y:scroll;
 	margin:auto;
 	text-align: justify;
 	padding:15px;
